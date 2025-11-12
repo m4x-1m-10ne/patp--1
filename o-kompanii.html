@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании | ПАТП №1 - Пассажирские перевозки в Вологде</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="styles/o-kompanii.css">
+    <style>
+        :root {
+            --primary-color: #3a6ce6;
+            --secondary-color: #4a7cff;
+            --text-color: #333333;
+            --light-bg: #f8f9fa;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+
+        .header-area {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 60px;
+            max-width: 100%;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 0 0 auto;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .main-menu {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .main-menu nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .main-menu nav ul li {
+            position: relative;
+        }
+
+        .main-menu nav ul li a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 10px 18px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        .main-menu nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .main-menu nav ul li a.menu-icon i {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .main-menu nav ul li:hover > a.menu-icon i {
+            transform: rotate(180deg);
+        }
+
+        .submenu-mainmenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 2px solid var(--primary-color);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .main-menu nav ul li:hover .submenu-mainmenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .submenu-mainmenu li {
+            width: 100%;
+        }
+
+        .submenu-mainmenu li a {
+            display: block;
+            padding: 10px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555555;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .submenu-mainmenu li:last-child a {
+            border-bottom: none;
+        }
+
+        .submenu-mainmenu li a:hover {
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .header-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        .header-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: transparent;
+            padding: 5px;
+            width: 40px;
+            height: 40px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .navbar-toggler span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .navbar-toggler.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .navbar-toggler.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: 999;
+            overflow-y: auto;
+            max-height: calc(100vh - 80px);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu-container {
+            padding: 20px;
+        }
+
+        .mobile-menu-section {
+            margin-bottom: 25px;
+        }
+
+        .mobile-menu-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu-links li {
+            margin-bottom: 8px;
+        }
+
+        .mobile-menu-links a {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-menu-links a:hover {
+            background: #e9ecef;
+            border-left-color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .mobile-menu-links a i {
+            width: 20px;
+            margin-right: 12px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-links a.external-link::after {
+            content: "↗";
+            margin-left: auto;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .mobile-menu-buttons {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn.primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .mobile-menu-btn.primary:hover {
+            background: #2a5cd6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(58, 108, 230, 0.3);
+        }
+
+        body.mobile-menu-open {
+            overflow: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://mupatp1.ru/assets/components/phpthumbof/cache/DSC05760-min.9b2c824ee3b158a8518e8db344e0f9662.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px 80px;
+            margin-bottom: 0;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3a6ce6;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #2a5cd6;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .section {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: #666666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+
+        .about-content h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .about-content img {
+            width: 100%;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card i {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .stat-card h3 {
+            font-size: 36px;
+            font-weight: bold;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            color: #666666;
+            font-size: 16px;
+        }
+
+        .accordion {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 20px 30px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header:hover {
+            background: #2a5cd6;
+        }
+
+        .accordion-header i {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active i {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-content.active {
+            padding: 30px;
+            max-height: 1000px;
+        }
+
+        .contact-sidebar {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .contact-sidebar h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 10px;
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .contact-info li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .contact-info i {
+            width: 20px;
+            text-align: center;
+            color: var(--primary-color);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .contact-info .content {
+            flex: 1;
+        }
+
+        .contact-info strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+
+        .gallery-slider {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .gallery-slider h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 10px;
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 300px;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.8);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .slider-arrow:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-arrow.prev {
+            left: 15px;
+        }
+
+        .slider-arrow.next {
+            right: 15px;
+        }
+
+        .slider-arrow i {
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+
+        footer {
+            background-color: #222222;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 0 1 300px;
+            max-width: 300px;
+        }
+
+        .footer-column h3 {
+            font-size: 21px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-contact-info {
+            margin-top: 20px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #bbbbbb;
+        }
+
+        .footer-contact-item i {
+            color: white;
+            width: 20px;
+        }
+
+        .footer-contact-item a {
+            color: #bbbbbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-item a:hover {
+            color: white;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-image-container {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .footer-image-container img {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333333;
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbbbbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444444;
+            color: #bbbbbb;
+            font-size: 14px;
+        }
+
+        #toTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #000000;
+            color: white;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #toTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #toTop:hover {
+            background-color: #333333;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 992px) {
+            .header-container {
+                flex-wrap: nowrap;
+            }
+            
+            .header-right {
+                flex: 0 0 auto;
+            }
+            
+            .navbar-toggler {
+                display: flex;
+                margin-left: 10px;
+            }
+            
+            .main-menu {
+                display: none;
+            }
+            
+            .header-buttons {
+                display: none;
+            }
+
+            .footer-content {
+                gap: 30px;
+            }
+            
+            .footer-column {
+                flex: 0 1 280px;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px; 
+            }
+            
+            .hero {
+                padding: 100px 20px 60px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .section-title {
+                margin-bottom: 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 29px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .slide {
+                height: 250px;
+            }
+            
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .slider-arrow i {
+                font-size: 16px;
+            }
+            
+            #toTop {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-column {
+                flex: 1;
+                max-width: 400px;
+                width: 100%;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .footer-image-container {
+                width: 60px;
+                height: 60px;
+            }
+
+            .mobile-menu {
+                top: 70px;
+                max-height: calc(100vh - 70px);
+            }
+            
+            .mobile-menu-overlay {
+                top: 70px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 80px 20px 40px;
+            }
+            
+            .hero h1 {
+                font-size: 24px;
+            }
+            
+            .hero p {
+                font-size: 14px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
+            
+            .slide {
+                height: 200px;
+            }
+            
+            .slide-caption {
+                padding: 10px;
+                font-size: 14px;
+            }
+            
+            #toTop {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .footer-content {
+                gap: 30px;
+            }
+            
+            .footer-column {
+                max-width: 100%;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .mobile-menu-container {
+                padding: 15px;
+            }
+
+            .about-content {
+                padding: 20px;
+            }
+
+            .accordion-header {
+                padding: 15px 20px;
+                font-size: 16px;
+            }
+
+            .accordion-content.active {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-area">
+        <div class="container-fluid">
+            <div class="header-container">
+                <div class="header-left">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="https://mupatp1.ru/assets/template/img/logo_Ptp.png" alt="Логотип ПАТП №1">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="header-center">
+                    <div class="main-menu">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="https://mupatp1.ru/raspisanie/" class="menu-icon">Расписание<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="https://citybus35.ru/" target="_blank">Умный транспорт</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="stoimost-proezda.html" class="menu-icon">Оплата проезда<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="https://bilet.nspk.ru/" target="_blank">Оплата банковской картой</a></li>
+                                        <li><a href="https://t-karta.ru" target="_blank">История поездок (кабинет)</a></li>
+                                    </ul>
+                                </li>
+                                <li class="active">
+                                    <a href="uslugi.html" class="menu-icon">Услуги<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="zakaznye-perevozki.html">Заказные перевозки</a></li>
+                                        <li><a href="passazhirskie-perevozki.html">Пассажирские перевозки</a></li>
+                                        <li><a href="perevozka-detej.html">Перевозка детей</a></li>
+                                        <li><a href="texnicheskoe-obsluzhivanie.html">Техническое обслуживание</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="o-kompanii.html" class="menu-icon">О компании<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="novosti.html">Новости</a></li>
+                                        <li><a href="kontakty.html">Контакты</a></li>
+                                        <li><a href="avtopark.html">Автопарк</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="oficialnaya-informaciya.html" class="menu-icon">Официальная информация<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="dokumenty.html">Документы</a></li>
+                                        <li><a href="protivodejstvie-korrupcii.html">Противодействие коррупции</a></li>
+                                        <li><a href="informaciya-ot-prokuratury.html">Информация от Прокуратуры г. Вологда</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-btn-dropdown">
+                        <button class="header-btn">
+                            <i class="fas fa-ticket-alt"></i> ВАШ БИЛЕТ <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="vash-bilet-dropdown">
+                            <li><a href="http://вашбилет.рф" target="_blank"><i class="fas fa-external-link-alt"></i> Перейти в систему</a></li>
+                            <li><a href="vash-bilet.html"><i class="fas fa-info-circle"></i> О системе</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="navbar-toggler" id="navbarToggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-menu-container">
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Расписание</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="https://mupatp1.ru/raspisanie/"><i class="fas fa-bus"></i> Расписание автобусов</a></li>
+                            <li><a href="https://citybus35.ru/" target="_blank" class="external-link"><i class="fas fa-map-marked-alt"></i> Умный транспорт</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Оплата проезда</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="stoimost-proezda.html"><i class="fas fa-money-bill-wave"></i> Стоимость проезда</a></li>
+                            <li><a href="https://bilet.nspk.ru/" target="_blank" class="external-link"><i class="fas fa-credit-card"></i> Оплата картой</a></li>
+                            <li><a href="https://t-karta.ru" target="_blank" class="external-link"><i class="fas fa-history"></i> История поездок</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Услуги</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="uslugi.html"><i class="fas fa-concierge-bell"></i> Все услуги</a></li>
+                            <li><a href="zakaznye-perevozki.html"><i class="fas fa-bus-alt"></i> Заказные перевозки</a></li>
+                            <li><a href="passazhirskie-perevozki.html"><i class="fas fa-users"></i> Пассажирские перевозки</a></li>
+                            <li><a href="perevozka-detej.html"><i class="fas fa-child"></i> Перевозка детей</a></li>
+                            <li><a href="texnicheskoe-obsluzhivanie.html"><i class="fas fa-cogs"></i> Техническое обслуживание</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">О компании</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="o-kompanii.html"><i class="fas fa-building"></i> О нас</a></li>
+                            <li><a href="novosti.html"><i class="far fa-newspaper"></i> Новости</a></li>
+                            <li><a href="kontakty.html"><i class="fas fa-address-book"></i> Контакты</a></li>
+                            <li><a href="avtopark.html"><i class="fas fa-car"></i> Автопарк</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Официальная информация</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="oficialnaya-informaciya.html"><i class="fas fa-info-circle"></i> Официальная информация</a></li>
+                            <li><a href="dokumenty.html"><i class="fas fa-file-alt"></i> Документы</a></li>
+                            <li><a href="protivodejstvie-korrupcii.html"><i class="fas fa-gavel"></i> Противодействие коррупции</a></li>
+                            <li><a href="informaciya-ot-prokuratury.html"><i class="fas fa-balance-scale"></i> Информация от Прокуратуры</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">ВАШ БИЛЕТ</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="http://вашбилет.рф" target="_blank" class="external-link"><i class="fas fa-external-link-alt"></i> Перейти в систему</a></li>
+                            <li><a href="vash-bilet.html"><i class="fas fa-info-circle"></i> О системе</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>О компании</h1>
+            <p>История и современность крупнейшего пассажирского перевозчика Вологды</p>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="about-content">
+                        <h3>О нас</h3>
+                        <p>В настоящий момент городские автобусные пассажирские перевозки населения г. Вологды осуществляют АО "ПАТП № 1".</p>
+                        <p>Ежедневно в городе Вологда автобусами «ПАТП № 1» перевозится около 50 тысяч пассажиров, а это более 18 миллионов пассажиров в год. Эксплуатационный парк автобусов составляет порядка 130 единиц, численность работающих - около 500 человек.</p>
+                        <p>В настоящее время «ПАТП № 1», являясь частью инфраструктуры города, играет важную роль в его жизнеобеспечении. Подвижность населения города, работа промышленных предприятий, а также предприятий и учреждений социальной сферы напрямую зависит от городского пассажирского транспорта.</p>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <i class="fas fa-bus"></i>
+                                <h3>130+</h3>
+                                <p>Автобусов в парке</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-users"></i>
+                                <h3>50 тыс.</h3>
+                                <p>Пассажиров ежедневно</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-road"></i>
+                                <h3>15</h3>
+                                <p>Маршрутов</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-user-tie"></i>
+                                <h3>500</h3>
+                                <p>Сотрудников</p>
+                            </div>
+                        </div>
+
+                        <p>Начиная с 2012 года Предприятие реализует проект безналичной оплаты проезда, постоянно совершенствуя его, предлагая новые решения. В 2019 году «ПАТП № 1» первым предоставило своим пассажирам возможность оплаты проезда банковскими картами.</p>
+                        <p>Значительные суммы налоговых платежей в городской, областной и федеральный бюджеты, а также платежей во внебюджетные фонды, уплачиваемых Предприятием без задержек, в сроки, установленные законодательством, свидетельствуют о том, что «ПАТП № 1» вносит свой весомый вклад в экономику города и области.</p>
+                        
+                        <h3 style="margin-top: 40px;">Виды деятельности</h3>
+                        <ul>
+                            <li>Перевозка пассажиров на городских маршрутах</li>
+                            <li>Перевозка пассажиров по отдельным заказам граждан и организаций</li>
+                            <li>Оказание услуг юридическим и физическим лицам в техническом обслуживании и ремонте транспортных средств</li>
+                            <li>Осуществление рекламной деятельности</li>
+                            <li>Обучение водителей на категории С и D в Учебном центре Предприятия</li>
+                            <li>Оказание услуг юридическим лицам по предрейсовому, послерейсовому, а также предсменному и послесменному медосмотрам работников</li>
+                        </ul>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-header active">
+                                <span>История предприятия</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content active">
+                                <p>«ПАТП № 1» - это крупнейший перевозчик пассажиров в городе Вологде и одно из самых значимых предприятий для областной столицы. История предприятия насчитывает уже более 80 лет.</p>
+                                <p>Все началось в 1939 году, когда в Вологде была основана Вологодская автотранспортная контора. Первоначально АТК размещалась на Красноармейской набережной (в настоящее время территория СКДМ). В то время в парк предприятия входили первые советские автобусы марки ЗИС-8 - еще с деревянными кузовом и сиденьями.</p>
+                                <p>В 1955 году Вологодская АТК переместилась в другое место - на Пошехонское шоссе, 4 (территория бывшего таксопарка) и была переименована в пассажирское автохозяйство (ПАХ). К тому времени парк предприятия составлял уже 162 автобуса марок ЗИС-155, РАФ, ТА-6 и ПАЗ-651.</p>
+                                <p>Позже ПАХ переместилось на улицу Чернышевского, 135 и переименовано в «Автоколонну № 1117». В 1986 году от нее отделилось ПАТП № 2, которое осталось на старой производственной базе, а само Предприятие обрело привычный уже ныне дом на Мудрова, 31.</p>
+                                <p>Здесь для нужд предприятия была построена производственная база – гараж на 200 автобусов с закрытой стоянкой на 80 автобусов, мастерские, посты диагностики и технического обслуживания. Вскоре были построены и оборудованы новые ремонтные цеха, склады, смотровые канавы с канализацией.</p>
+                                <p>В 1992 году «Автоколонна № 1117» перешла из федеральной собственности в областную, а в 1995 году - в муниципальную. Тогда же она была переименована в муниципальное унитарное пассажирское автотранспортное предприятие № 1 (МУ ПАТП № 1).</p>
+                                <p>Сейчас перевозки обслуживает созданное в 2017 году «ПАТП № 1». Стабильное финансово-экономическое положение позволяет ПАТП № 1 не только выполнять поставленные перед ним производственные задачи, но и проводить целенаправленную социальную политику в коллективе.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="contact-sidebar">
+                        <h3>Контактная информация</h3>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="content">
+                                    <strong>Адрес</strong>
+                                    <span>г. Вологда, ул. Мудрова, 31</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-building"></i>
+                                <div class="content">
+                                    <strong>Организация</strong>
+                                    <span>АО «ПАТП №1»</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <div class="content">
+                                    <strong>Приемная</strong>
+                                    <a href="tel:+78172556670">+7 (8172) 55-66-70</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <div class="content">
+                                    <strong>Диспетчерская</strong>
+                                    <a href="tel:+78172556670">+7 (8172) 55-66-70</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <div class="content">
+                                    <strong>E-mail</strong>
+                                    <a href="mailto:mail@mupatp1.ru">mail@mupatp1.ru</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-globe"></i>
+                                <div class="content">
+                                    <strong>Сайт</strong>
+                                    <a href="https://mupatp1.ru/">mupatp1.ru</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="gallery-slider">
+                        <h3>Фотогалерея</h3>
+                        <div class="slider-container">
+                            <button class="slider-arrow prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            
+                            <div class="slider-track">
+                                <div class="slide">
+                                    <img src="https://mupatp1.ru/assets/components/phpthumbof/cache/DSC05760-min.59e127beda95410cba288abc305fd7522.jpg" alt="Автобусы ПАТП №1">
+                                </div>
+                                <div class="slide">
+                                    <img src="https://mupatp1.ru/assets/components/phpthumbof/cache/DSC05807-min.59e127beda95410cba288abc305fd7522.jpg" alt="Транспорт ПАТП №1">
+                                </div>
+                                <div class="slide">
+                                    <img src="https://mupatp1.ru/assets/components/phpthumbof/cache/DSC05804-min.59e127beda95410cba288abc305fd7522.jpg" alt="Автопарк ПАТП №1">
+                                </div>
+                                <div class="slide">
+                                    <img src="https://mupatp1.ru/uploads/DSC05783-min.jpg" alt="История предприятия">
+                                </div>
+                            </div>
+                            
+                            <button class="slider-arrow next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="slider-nav">
+                            <button class="slider-dot active" data-slide="0"></button>
+                            <button class="slider-dot" data-slide="1"></button>
+                            <button class="slider-dot" data-slide="2"></button>
+                            <button class="slider-dot" data-slide="3"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3><a href="o-kompanii.html" style="color: white; text-decoration: none;">О нашей компании</a></h3>
+                    
+                    <div class="footer-contact-info">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+78172556670">+7 (8172) 55-66-70</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:mail@mupatp1.ru">mail@mupatp1.ru</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-bottom-content">
+                        <div class="footer-image-container">
+                            <img src="img/win.png" alt="Победа">
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/patp1vologda" target="_blank"><i class="fab fa-vk"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Основные разделы</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://mupatp1.ru/raspisanie/">Расписание</a></li>
+                        <li><a href="stoimost-proezda.html">Оплата проезда</a></li>
+                        <li><a href="uslugi.html">Услуги</a></li>
+                        <li><a href="novosti.html">Новости</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Полезные ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://citybus35.ru/" target="_blank">Умный транспорт</a></li>
+                        <li><a href="work">Работа у нас</a></li>
+                        <li><a href="" target="_blank">Учебный центр</a></li>
+                        <li><a href="dokumentyi">Документы</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 АО «ПАТП №1». Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const gallerySlider = document.querySelector('.gallery-slider');
+            if (gallerySlider) {
+                const track = gallerySlider.querySelector('.slider-track');
+                const slides = gallerySlider.querySelectorAll('.slide');
+                const dots = gallerySlider.querySelectorAll('.slider-dot');
+                const prevBtn = gallerySlider.querySelector('.slider-arrow.prev');
+                const nextBtn = gallerySlider.querySelector('.slider-arrow.next');
+                let currentSlide = 0;
+                const slideCount = slides.length;
+                let autoPlayInterval;
+
+                function goToSlide(index) {
+                    currentSlide = index;
+                    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === currentSlide);
+                    });
+                }
+
+                function next() {
+                    currentSlide = (currentSlide + 1) % slideCount;
+                    goToSlide(currentSlide);
+                }
+
+                function prev() {
+                    currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                    goToSlide(currentSlide);
+                }
+
+                function startAutoPlay() {
+                    autoPlayInterval = setInterval(next, 5000);
+                }
+
+                function stopAutoPlay() {
+                    clearInterval(autoPlayInterval);
+                }
+
+                prevBtn.addEventListener('click', prev);
+                nextBtn.addEventListener('click', next);
+
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => goToSlide(index));
+                });
+
+                gallerySlider.addEventListener('mouseenter', stopAutoPlay);
+                gallerySlider.addEventListener('mouseleave', startAutoPlay);
+
+                startAutoPlay();
+            }
+
+            const navbarToggler = document.getElementById('navbarToggler');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            
+            navbarToggler.addEventListener('click', function() {
+                const isActive = this.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                mobileMenuOverlay.classList.toggle('active');
+                document.body.classList.toggle('mobile-menu-open', isActive);
+            });
+            
+            mobileMenuOverlay.addEventListener('click', function() {
+                navbarToggler.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                this.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            });
+            
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (this.getAttribute('target') === '_blank') return;
+                    navbarToggler.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    document.body.classList.remove('mobile-menu-open');
+                });
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    navbarToggler.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    document.body.classList.remove('mobile-menu-open');
+                }
+            });
+            
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992 && mobileMenu.classList.contains('active')) {
+                    navbarToggler.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    document.body.classList.remove('mobile-menu-open');
+                }
+            });
+
+            const scrollButton = document.getElementById('toTop');
+            
+            function toggleScrollButton() {
+                if (window.scrollY > 300) {
+                    scrollButton.classList.add('show');
+                } else {
+                    scrollButton.classList.remove('show');
+                }
+            }
+            
+            toggleScrollButton();
+            window.addEventListener('scroll', toggleScrollButton);
+            
+            scrollButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const isActive = content.classList.contains('active');
+                    
+                    document.querySelectorAll('.accordion-content').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    document.querySelectorAll('.accordion-header').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    if (!isActive) {
+                        content.classList.add('active');
+                        this.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

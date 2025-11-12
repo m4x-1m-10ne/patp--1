@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПАТП №1 - Пассажирские перевозки в Вологде</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <style>
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333333;
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+
+        .header-area {
+            max-width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto; 
+            padding: 0 15px;
+        }
+
+        .logo img {
+            height: 60px;
+            max-width: 100%;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 0 0 auto;
+        }
+
+        .header-center {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            flex: 0 0 auto;
+            gap: 15px;
+        }
+
+        .main-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-menu nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .main-menu nav ul li {
+            position: relative;
+        }
+
+        .main-menu nav ul li a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 10px 18px;
+            color: #333333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        .main-menu nav ul li a:hover {
+            color: #3a6ce6;
+        }
+
+        .main-menu nav ul li a.menu-icon i {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .main-menu nav ul li:hover > a.menu-icon i {
+            transform: rotate(180deg);
+        }
+
+        .submenu-mainmenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 2px solid #3a6ce6;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .main-menu nav ul li:hover .submenu-mainmenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .submenu-mainmenu li {
+            width: 100%;
+        }
+
+        .submenu-mainmenu li a {
+            display: block;
+            padding: 10px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555555;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .submenu-mainmenu li:last-child a {
+            border-bottom: none;
+        }
+
+        .submenu-mainmenu li a:hover {
+            background-color: #f8f9fa;
+            color: #3a6ce6;
+        }
+
+        .header-btn-dropdown {
+            position: relative;
+        }
+
+        .header-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #4a7cff;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            white-space: nowrap;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .header-btn:hover {
+            background-color: #3a6ce6;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(58, 108, 230, 0.3);
+        }
+
+        .header-btn i.fa-angle-down {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .header-btn-dropdown:hover .header-btn i.fa-angle-down {
+            transform: rotate(180deg);
+        }
+
+        .vash-bilet-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 2px solid #3a6ce6;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border-radius: 0 0 5px 5px;
+            overflow: hidden;
+        }
+
+        .header-btn-dropdown:hover .vash-bilet-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .vash-bilet-dropdown li {
+            width: 100%;
+        }
+
+        .vash-bilet-dropdown li a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555555;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .vash-bilet-dropdown li:last-child a {
+            border-bottom: none;
+        }
+
+        .vash-bilet-dropdown li a:hover {
+            background-color: #f8f9fa;
+            color: #3a6ce6;
+            padding-left: 20px;
+        }
+
+        .vash-bilet-dropdown li a i {
+            width: 16px;
+            text-align: center;
+            color: #3a6ce6;
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: transparent;
+            padding: 5px;
+            width: 40px;
+            height: 40px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .navbar-toggler span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #4a7cff;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .navbar-toggler.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .navbar-toggler.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            overflow-y: auto;
+            max-height: calc(100vh - 80px);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu-container {
+            padding: 20px;
+            max-width: 100%;
+        }
+
+        .mobile-menu-section {
+            margin-bottom: 25px;
+        }
+
+        .mobile-menu-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3a6ce6;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3a6ce6;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu-links li {
+            margin-bottom: 8px;
+        }
+
+        .mobile-menu-links a {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-menu-links a:hover {
+            background: #e9ecef;
+            border-left-color: #3a6ce6;
+            transform: translateX(5px);
+        }
+
+        .mobile-menu-links a i {
+            width: 20px;
+            margin-right: 12px;
+            text-align: center;
+            color: #3a6ce6;
+        }
+
+        .mobile-menu-links a.external-link::after {
+            content: "↗";
+            margin-left: auto;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+
+        body.mobile-menu-open {
+            overflow: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('img/hero1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 180px 20px;
+            margin-bottom: 0;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3a6ce6;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #2a5cd6;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 200px;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .stat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .stat-icon {
+            font-size: 40px;
+            color: #3a6ce6;
+        }
+
+        .stat-divider {
+            font-size: 32px;
+            color: #666666;
+            font-weight: 300;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #3a6ce6;
+        }
+
+        .stat-text {
+            font-size: 18px;
+            color: #555555;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+            color: #333333;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #3a6ce6;
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: #666666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-img {
+            height: 200px;
+            background-color: #eeeeee;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .news-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .news-date {
+            color: #3a6ce6;
+            font-weight: 500;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .news-content h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .news-content p {
+            color: #666666;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .map-section {
+            padding: 40px 0;
+            background-color: #f1f5f9;
+        }
+
+        .map-container {
+            height: 500px;
+            width: 100%;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-controls {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .map-control-btn {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .map-control-btn:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .map-control-btn.active {
+            background: #3a6ce6;
+            color: white;
+        }
+
+        .map-notice {
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+            background: #e3f2fd;
+            border-radius: 5px;
+            color: #1565c0;
+            font-size: 14px;
+        }
+
+        .map-notice i {
+            margin-right: 8px;
+        }
+
+        #ymap {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .map-fullscreen {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            z-index: 10000 !important;
+            border-radius: 0 !important;
+        }
+
+        .map-notifications {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            pointer-events: none;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .map-notification {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #3a6ce6;
+            transform: translateY(-20px) scale(0.9);
+            opacity: 0;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .map-notification.show {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .map-notification-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .map-notification-content i {
+            color: #3a6ce6;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        #toTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #000000;
+            color: white;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #toTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #toTop:hover {
+            background-color: #333333;
+            transform: translateY(-3px);
+        }
+
+        #workButton {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #3a6ce6;
+            color: white;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 9998;
+            box-shadow: 0 4px 10px rgba(58, 108, 230, 0.3);
+        }
+
+        #workButton.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #workButton:hover {
+            background-color: #2a5cd6;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(58, 108, 230, 0.4);
+        }
+
+        .footer-links a.highlight {
+            color: #3a6ce6 !important;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .footer-links a.highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #3a6ce6;
+            animation: pulse 1.5s infinite;
+        }
+
+        .footer-links a.highlight-pulse {
+            animation: textPulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes textPulse {
+            0% { color: #3a6ce6; }
+            50% { color: #5a8cff; }
+            100% { color: #3a6ce6; }
+        }
+        
+        footer {
+            background-color: #222222;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 0 1 300px;
+            max-width: 300px;
+        }
+
+        .footer-column h3 {
+            font-size: 21px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-contact-info {
+            margin-top: 20px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #bbbbbb;
+        }
+
+        .footer-contact-item i {
+            color: white;
+            width: 20px;
+        }
+
+        .footer-contact-item a {
+            color: #bbbbbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-item a:hover {
+            color: white;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-image-container {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .footer-image-container img {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333333;
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #3a6ce6;
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbbbbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444444;
+            color: #bbbbbb;
+            font-size: 14px;
+        }
+
+        .job-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .job-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .job-popup {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .job-popup-overlay.active .job-popup {
+            transform: translateY(0);
+        }
+
+        .job-popup-icon {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .job-popup-icon i {
+            font-size: 60px;
+            color: #3a6ce6;
+        }
+
+        .job-popup h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .job-popup p {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .job-popup-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .job-popup-btn {
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .job-popup-btn.primary {
+            background-color: #3a6ce6;
+            color: white;
+        }
+
+        .job-popup-btn.primary:hover {
+            background-color: #2a5cd6;
+            transform: translateY(-2px);
+        }
+
+        .job-popup-btn.secondary {
+            background-color: #f8f9fa;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .job-popup-btn.secondary:hover {
+            background-color: #e9ecef;
+        }
+
+        @media (max-width: 1200px) {
+            .main-menu nav ul li a {
+                padding: 10px 15px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-container {
+                flex-wrap: nowrap;
+            }
+            
+            .header-center {
+                display: none;
+            }
+            
+            .navbar-toggler {
+                display: flex;
+            }
+            
+            .header-btn {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+
+            .footer-content {
+                gap: 30px;
+            }
+            
+            .footer-column {
+                flex: 0 1 280px;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px; 
+            }
+            
+            .hero {
+                padding: 120px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .stats {
+                gap: 15px;
+                margin: 40px 0;
+            }
+            
+            .stat-item {
+                min-width: 150px;
+                padding: 20px 15px;
+                flex: 0 0 calc(50% - 15px);
+            }
+            
+            .stat-number {
+                font-size: 40px;
+            }
+            
+            .stat-content {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .stat-divider {
+                display: none;
+            }
+            
+            #toTop {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            #workButton {
+                bottom: 20px;
+                left: 20px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+            
+            .map-controls {
+                top: 10px;
+                right: 10px;
+            }
+
+            .map-notifications {
+                width: 90%;
+                max-width: 300px;
+            }
+            
+            .map-notification {
+                padding: 12px 15px;
+            }
+            
+            .map-notification-content {
+                font-size: 13px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-column {
+                flex: 1;
+                max-width: 400px;
+                width: 100%;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .footer-image-container {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .section {
+                padding: 40px 0;
+            }
+            
+            .section-title {
+                margin-bottom: 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 29px;
+            }
+
+            .mobile-menu {
+                top: 70px;
+                max-height: calc(100vh - 70px);
+            }
+            
+            .mobile-menu-overlay {
+                top: 70px;
+            }
+            
+            .mobile-menu-container {
+                padding: 15px;
+            }
+            
+            .mobile-menu-title {
+                font-size: 15px;
+            }
+            
+            .mobile-menu-links a {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 29px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
+            
+            #toTop {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            #workButton {
+                bottom: 15px;
+                left: 15px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .stat-item {
+                flex: 1;
+                min-width: 100%;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .footer-content {
+                gap: 30px;
+            }
+            
+            .footer-column {
+                max-width: 100%;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-area">
+        <div class="container-fluid">
+            <div class="header-container">
+                <div class="header-left">
+                    <div class="logo">
+                        <a href="index.html"><img src="img/logo.png" alt="Логотип ПАТП №1"></a>
+                    </div>
+                </div>
+                
+                <div class="header-center">
+                    <div class="main-menu">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="https://mupatp1.ru/raspisanie/" class="menu-icon">Расписание<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="https://citybus35.ru/" target="_blank">Умный транспорт</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="stoimost-proezda.html" class="menu-icon">Оплата проезда<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="https://bilet.nspk.ru/" target="_blank">Оплата банковской картой</a></li>
+                                        <li><a href="https://t-karta.ru" target="_blank">История поездок (кабинет)</a></li>
+                                    </ul>
+                                </li>
+                                <li class="active">
+                                    <a href="uslugi.html" class="menu-icon">Услуги<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="zakaznye-perevozki.html">Заказные перевозки</a></li>
+                                        <li><a href="passazhirskie-perevozki.html">Пассажирские перевозки</a></li>
+                                        <li><a href="perevozka-detej.html">Перевозка детей</a></li>
+                                        <li><a href="texnicheskoe-obsluzhivanie.html">Техническое обслуживание</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="o-kompanii.html" class="menu-icon">О компании<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="novosti.html">Новости</a></li>
+                                        <li><a href="kontakty.html">Контакты</a></li>
+                                        <li><a href="avtopark.html">Автопарк</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="oficialnaya-informaciya.html" class="menu-icon">Официальная информация<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="dokumenty.html">Документы</a></li>
+                                        <li><a href="protivodejstvie-korrupcii.html">Противодействие коррупции</a></li>
+                                        <li><a href="informaciya-ot-prokuratury.html">Информация от Прокуратуры г. Вологда</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-btn-dropdown">
+                        <button class="header-btn">
+                            <i class="fas fa-ticket-alt"></i> ВАШ БИЛЕТ <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="vash-bilet-dropdown">
+                            <li><a href="http://вашбилет.рф" target="_blank"><i class="fas fa-external-link-alt"></i> Перейти в систему</a></li>
+                            <li><a href="vash-bilet.html"><i class="fas fa-info-circle"></i> О системе</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="navbar-toggler" id="navbarToggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-menu-container">
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Расписание</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="https://mupatp1.ru/raspisanie/"><i class="fas fa-bus"></i> Расписание автобусов</a></li>
+                            <li><a href="https://citybus35.ru/" target="_blank" class="external-link"><i class="fas fa-map-marked-alt"></i> Умный транспорт</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Оплата проезда</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="stoimost-proezda.html"><i class="fas fa-money-bill-wave"></i> Стоимость проезда</a></li>
+                            <li><a href="https://bilet.nspk.ru/" target="_blank" class="external-link"><i class="fas fa-credit-card"></i> Оплата картой</a></li>
+                            <li><a href="https://t-karta.ru" target="_blank" class="external-link"><i class="fas fa-history"></i> История поездок</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Услуги</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="uslugi.html"><i class="fas fa-concierge-bell"></i> Все услуги</a></li>
+                            <li><a href="zakaznye-perevozki.html"><i class="fas fa-bus-alt"></i> Заказные перевозки</a></li>
+                            <li><a href="passazhirskie-perevozki.html"><i class="fas fa-users"></i> Пассажирские перевозки</a></li>
+                            <li><a href="perevozka-detej.html"><i class="fas fa-child"></i> Перевозка детей</a></li>
+                            <li><a href="texnicheskoe-obsluzhivanie.html"><i class="fas fa-cogs"></i> Техническое обслуживание</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">О компании</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="o-kompanii.html"><i class="fas fa-building"></i> О нас</a></li>
+                            <li><a href="novosti.html"><i class="far fa-newspaper"></i> Новости</a></li>
+                            <li><a href="kontakty.html"><i class="fas fa-address-book"></i> Контакты</a></li>
+                            <li><a href="avtopark.html"><i class="fas fa-car"></i> Автопарк</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Официальная информация</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="oficialnaya-informaciya.html"><i class="fas fa-info-circle"></i> Официальная информация</a></li>
+                            <li><a href="dokumenty.html"><i class="fas fa-file-alt"></i> Документы</a></li>
+                            <li><a href="protivodejstvie-korrupcii.html"><i class="fas fa-gavel"></i> Противодействие коррупции</a></li>
+                            <li><a href="informaciya-ot-prokuratury.html"><i class="fas fa-balance-scale"></i> Информация от Прокуратуры</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">ВАШ БИЛЕТ</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="http://вашбилет.рф" target="_blank" class="external-link"><i class="fas fa-external-link-alt"></i> Перейти в систему</a></li>
+                            <li><a href="vash-bilet.html"><i class="fas fa-info-circle"></i> О системе</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Пассажирские автотранспортные перевозки</h1>
+            <p>АО «ПАТП №1» - крупнейший перевозчик Вологды.</p>
+            <a href="o-kompanii.html" class="btn">Узнать больше</a>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-content">
+                    <div class="stat-icon">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <div class="stat-divider">/</div>
+                    <div class="stat-number" data-count="130">0</div>
+                </div>
+                <div class="stat-text">Автобусов в парке</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-content">
+                    <div class="stat-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <div class="stat-divider">/</div>
+                    <div class="stat-number" data-count="15">0</div>
+                </div>
+                <div class="stat-text">Маршрутов по городу</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-content">
+                    <div class="stat-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <div class="stat-divider">/</div>
+                    <div class="stat-number" data-count="178">0</div>
+                </div>
+                <div class="stat-text">Протяженность маршрутной сети</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Последние новости</h2>
+                <p>Будьте в курсе изменений в маршрутах и других важных событий</p>
+            </div>
+            
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="news-content">
+                        <div class="news-date">
+                            <i class="far fa-calendar-alt"></i> 31 ОКТ, 2025
+                        </div>
+                        <h3>Изменения в маршруте №6</h3>
+                        <p>С 01 ноября 2025 года будет изменена схема движения автобусов по маршруту №6 «парк «Осановская роща»».</p>
+                        <div class="news-btn-container">
+                            <a href="news/izmeneniya-s-01-noyabrya-2025-goda-v-marshrute-№-6-«park-«osanovskaya-roshha»»" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="news-content">
+                        <div class="news-date">
+                            <i class="far fa-calendar-alt"></i> 27 ОКТ, 2025
+                        </div>
+                        <h3>Ограничения мобильной связи</h3>
+                        <p>В связи с ограничениями мобильной связи и интернета, вводимыми на территории Вологодской области.</p>
+                        <div class="news-btn-container">
+                            <a href="news/izmeneniya-s-20-oktyabrya-2025-goda-v-marshrute-№42-«dalnyaya-ekimczevo»" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="news-content">
+                        <div class="news-date">
+                            <i class="far fa-calendar-alt"></i> 17 ОКТ, 2025
+                        </div>
+                        <h3>Зимний период маршрута №42</h3>
+                        <p>С 20 октября 2025 года маршрут №42 «Дальняя - Екимцево» переходит на зимний период.</p>
+                        <div class="news-btn-container">
+                            <a href="news/izmeneniya-s-20-oktyabrya-2025-goda-v-marshrute-№41-vpz-ekimczevo" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="novosti.html" class="btn">Все новости</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Мы на карте</h2>
+                <div class="map-notice">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Для масштабирования карты нажмите на нее, затем используйте колесико мыши</span>
+                </div>
+            </div>
+            
+            <div class="map-container" id="mapContainer">
+                <div id="ymap"></div>
+                
+                <div class="map-controls">
+                    <button class="map-control-btn" id="mapLocateBtn" title="Определить мое местоположение">
+                        <i class="fas fa-location-arrow"></i>
+                    </button>
+                    <button class="map-control-btn" id="mapLayerBtn" title="Сменить тип карты">
+                        <i class="fas fa-layer-group"></i>
+                    </button>
+                    <button class="map-control-btn" id="mapFullscreenBtn" title="Полноэкранный режим">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+                
+                <div class="map-notifications" id="mapNotifications"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3><a href="o-kompanii.html" style="color: white; text-decoration: none;">О нашей компании</a></h3>
+                    
+                    <div class="footer-contact-info">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+78172556670">+7 (8172) 55-66-70</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:mail@mupatp1.ru">mail@mupatp1.ru</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-bottom-content">
+                        <div class="footer-image-container">
+                            <img src="img/win.png" alt="Победа">
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/patp1vologda" target="_blank"><i class="fab fa-vk"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Основные разделы</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://mupatp1.ru/raspisanie/">Расписание</a></li>
+                        <li><a href="stoimost-proezda.html">Оплата проезда</a></li>
+                        <li><a href="uslugi.html">Услуги</a></li>
+                        <li><a href="novosti.html">Новости</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Полезные ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://citybus35.ru/" target="_blank">Умный транспорт</a></li>
+                        <li><a href="rabota.html">Работа у нас</a></li>
+                        <li><a href="https://yc.mupatp1.ru/" target="_blank">Учебный центр</a></li>
+                        <li><a href="dokumenty.html">Документы</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 АО «ПАТП №1». Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <div id="workButton">
+        <i class="fas fa-briefcase"></i>
+    </div>
+
+    <div class="job-popup-overlay" id="jobPopup">
+        <div class="job-popup">
+            <div class="job-popup-icon">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <h3>Присоединяйтесь к нашей команде!</h3>
+            <p>Мы ищем ответственных и профессиональных водителей, кондукторов и технических специалистов. Станьте частью крупнейшего перевозчика Вологды!</p>
+            <div class="job-popup-buttons">
+                <a href="rabota.html" class="job-popup-btn primary">Узнать о вакансиях</a>
+                <button class="job-popup-btn secondary" id="laterBtn">Напомнить позже</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const navbarToggler = document.getElementById('navbarToggler');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        navbarToggler.addEventListener('click', function() {
+            const isActive = this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            mobileMenuOverlay.classList.toggle('active');
+            document.body.classList.toggle('mobile-menu-open', isActive);
+        });
+        
+        mobileMenuOverlay.addEventListener('click', function() {
+            navbarToggler.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            this.classList.remove('active');
+            document.body.classList.remove('mobile-menu-open');
+        });
+        
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (this.getAttribute('target') === '_blank') {
+                    return;
+                }
+                
+                navbarToggler.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            });
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                navbarToggler.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            }
+        });
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 992 && mobileMenu.classList.contains('active')) {
+                navbarToggler.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            }
+        });
+
+        const scrollButton = document.getElementById('toTop');
+        
+        function toggleScrollButton() {
+            if (window.scrollY > 300) {
+                scrollButton.classList.add('show');
+            } else {
+                scrollButton.classList.remove('show');
+            }
+        }
+        
+        toggleScrollButton();
+        
+        window.addEventListener('scroll', toggleScrollButton);
+        
+        scrollButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        function animateCounter(element, target, duration) {
+        let start = 0;
+        const increment = target / (duration / 16);
+        
+        function updateCounter() {
+            start += increment;
+            if (start < target) {
+                element.textContent = Math.floor(start);
+                requestAnimationFrame(updateCounter);
+            } else {
+                element.textContent = target;
+            }
+        }
+        updateCounter();
+    }
+
+    function startCountersWhenVisible() {
+        const counters = document.querySelectorAll('.stat-number');
+        const statItems = document.querySelectorAll('.stat-item');
+        
+        statItems.forEach((item, index) => {
+            const rect = item.getBoundingClientRect();
+            
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                if (!item.classList.contains('visible')) {
+                    item.classList.add('visible');
+                    
+                    setTimeout(() => {
+                        const counter = counters[index];
+                        const target = parseInt(counter.getAttribute('data-count'));
+                        if (counter.textContent === '0') {
+                            animateCounter(counter, target, 1500);
+                        }
+                    }, 300);
+                }
+            }
+        });
+    }
+
+        const workButton = document.getElementById('workButton');
+        const workLink = document.querySelector('footer a[href="work"]');
+
+        function toggleWorkButton() {
+            if (window.scrollY > 300) {
+                workButton.classList.add('show');
+            } else {
+                workButton.classList.remove('show');
+            }
+        }
+
+        toggleWorkButton();
+        window.addEventListener('scroll', toggleWorkButton);
+
+        workButton.addEventListener('click', function() {
+            if (workLink) {
+                workLink.classList.remove('highlight', 'highlight-pulse');
+                
+                requestAnimationFrame(() => {
+                    workLink.classList.add('highlight');
+                    
+                    const footer = document.querySelector('footer');
+                    if (footer) {
+                        footer.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start'
+                        });
+                    }
+                    
+                    setTimeout(() => {
+                        workLink.classList.remove('highlight');
+                        workLink.classList.add('highlight-pulse');
+                    }, 2000);
+                    
+                    function clearHighlight(e) {
+                        if (!e.target.closest('footer') && e.target !== workButton && !e.target.closest('#workButton')) {
+                            workLink.classList.remove('highlight', 'highlight-pulse');
+                            document.removeEventListener('click', clearHighlight);
+                        }
+                    }
+                    
+                    document.addEventListener('click', clearHighlight);
+                    
+                    setTimeout(() => {
+                        workLink.classList.remove('highlight', 'highlight-pulse');
+                        document.removeEventListener('click', clearHighlight);
+                    }, 10000);
+                });
+            }
+        });
+
+        window.addEventListener('load', startCountersWhenVisible);
+        window.addEventListener('scroll', startCountersWhenVisible);
+
+        const jobPopup = document.getElementById('jobPopup');
+        const laterBtn = document.getElementById('laterBtn');
+        
+        function shouldShowPopup() {
+            if (sessionStorage.getItem('jobPopupShown')) {
+                return false;
+            }
+            
+            const nextShowTime = localStorage.getItem('jobPopupNextShow');
+            if (nextShowTime && Date.now() < parseInt(nextShowTime)) {
+                return false;
+            }
+            
+            return true;
+        }
+
+        setTimeout(() => {
+            if (shouldShowPopup()) {
+                jobPopup.classList.add('active');
+                sessionStorage.setItem('jobPopupShown', 'true');
+            }
+        }, 2000);
+
+        if (laterBtn) {
+            laterBtn.addEventListener('click', function() {
+                jobPopup.classList.remove('active');
+                localStorage.setItem('jobPopupNextShow', Date.now() + 24 * 60 * 60 * 1000);
+            });
+        }
+
+        jobPopup.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('active');
+            }
+        });
+
+        function highlightWorkLink() {
+            if (workLink) {
+                workLink.classList.add('highlight', 'highlight-pulse');
+                
+                const footer = document.querySelector('footer');
+                if (footer) {
+                    footer.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start'
+                    });
+                }
+                
+                setTimeout(() => {
+                    workLink.classList.remove('highlight-pulse');
+                }, 5000);
+            }
+        }
+
+        const primaryBtn = document.querySelector('.job-popup-btn.primary');
+        if (primaryBtn) {
+            primaryBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                jobPopup.classList.remove('active');
+                highlightWorkLink();
+            });
+        }
+
+        window.showJobPopup = function() {
+            jobPopup.classList.add('active');
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('ymap')) {
+                var coords = [59.234815, 39.920143];
+                var myMap;
+                var myPlacemark;
+                var currentMapType = 'map';
+                var isMapActive = false;
+                
+                ymaps.ready(function () {
+                    myMap = new ymaps.Map('ymap', {
+                        center: coords,
+                        zoom: 16,
+                        controls: []
+                    }, {
+                        searchControlProvider: 'yandex#search',
+                    });
+                    
+                    myPlacemark = new ymaps.Placemark(coords, {
+                        hintContent: 'ПАТП №1',
+                        balloonContent: 'АО «ПАТП №1»<br>ул. Мудрова, 31<br>Телефон: +7 (8172) 55-66-70'
+                    }, {
+                        preset: 'islands#redIcon',
+                        iconColor: '#3a6ce6'
+                    });
+
+                    myMap.geoObjects.add(myPlacemark);
+                    
+                    myPlacemark.events.add('click', function (e) {
+                        myPlacemark.balloon.open();
+                    });
+                    
+                    myMap.behaviors.disable(['scrollZoom', 'dblClickZoom', 'drag', 'multiTouch']);
+                    
+                    myMap.events.add('click', function (e) {
+                        if (!isMapActive) {
+                            isMapActive = true;
+                            myMap.behaviors.enable(['scrollZoom', 'dblClickZoom', 'drag', 'multiTouch']);
+                            showMapNotification('Карта активирована. Теперь можно масштабировать и перемещать');
+                            
+                            setTimeout(function() {
+                                if (isMapActive) {
+                                    myMap.behaviors.disable(['scrollZoom', 'dblClickZoom', 'drag', 'multiTouch']);
+                                    isMapActive = false;
+                                    showMapNotification('Карта деактивирована. Нажмите на карту для управления');
+                                }
+                            }, 10000);
+                        }
+                    });
+                    
+                    document.addEventListener('click', function(e) {
+                        if (isMapActive && !e.target.closest('#mapContainer')) {
+                            myMap.behaviors.disable(['scrollZoom', 'dblClickZoom', 'drag', 'multiTouch']);
+                            isMapActive = false;
+                        }
+                    });
+                    
+                    document.getElementById('mapLocateBtn').addEventListener('click', function() {
+                        if (navigator.geolocation) {
+                            navigator.geolocation.getCurrentPosition(function(position) {
+                                var userCoords = [position.coords.latitude, position.coords.longitude];
+                                
+                                var userPlacemark = new ymaps.Placemark(userCoords, {
+                                    hintContent: 'Ваше местоположение',
+                                    balloonContent: 'Вы здесь'
+                                }, {
+                                    preset: 'islands#blueCircleIcon',
+                                    iconColor: '#3a6ce6'
+                                });
+                                
+                                myMap.geoObjects.add(userPlacemark);
+                                myMap.setCenter(userCoords, 15, {duration: 1000});
+                                showMapNotification('Ваше местоположение отмечено на карте');
+                            }, function(error) {
+                                console.error('Ошибка получения геолокации:', error);
+                                showMapNotification('Не удалось определить ваше местоположение');
+                            });
+                        } else {
+                            showMapNotification('Ваш браузер не поддерживает геолокацию');
+                        }
+                    });
+                    
+                    document.getElementById('mapLayerBtn').addEventListener('click', function() {
+                        var mapTypes = ['map', 'satellite', 'hybrid'];
+                        var currentIndex = mapTypes.indexOf(currentMapType);
+                        var nextIndex = (currentIndex + 1) % mapTypes.length;
+                        currentMapType = mapTypes[nextIndex];
+                        
+                        myMap.setType('yandex#' + currentMapType);
+                        
+                        var icons = ['fa-layer-group', 'fa-satellite', 'fa-map'];
+                        this.innerHTML = '<i class="fas ' + icons[nextIndex] + '"></i>';
+                        
+                        showMapNotification('Тип карты изменен');
+                    });
+                    
+                    document.getElementById('mapFullscreenBtn').addEventListener('click', function() {
+                        var mapContainer = document.getElementById('mapContainer');
+                        
+                        if (!document.fullscreenElement) {
+                            if (mapContainer.requestFullscreen) {
+                                mapContainer.requestFullscreen();
+                            } else if (mapContainer.webkitRequestFullscreen) {
+                                mapContainer.webkitRequestFullscreen();
+                            } else if (mapContainer.msRequestFullscreen) {
+                                mapContainer.msRequestFullscreen();
+                            }
+                            
+                            mapContainer.classList.add('map-fullscreen');
+                            this.innerHTML = '<i class="fas fa-compress"></i>';
+                            myMap.behaviors.enable(['scrollZoom', 'dblClickZoom', 'drag', 'multiTouch']);
+                            isMapActive = true;
+                        } else {
+                            if (document.exitFullscreen) {
+                                document.exitFullscreen();
+                            } else if (document.webkitExitFullscreen) {
+                                document.webkitExitFullscreen();
+                            } else if (document.msExitFullscreen) {
+                                document.msExitFullscreen();
+                            }
+                            
+                            mapContainer.classList.remove('map-fullscreen');
+                            this.innerHTML = '<i class="fas fa-expand"></i>';
+                            myMap.behaviors.disable(['scrollZoom', 'dblClickZoom', 'drag', 'multiTouch']);
+                            isMapActive = false;
+                        }
+                    });
+                    
+                    document.addEventListener('fullscreenchange', exitHandler);
+                    document.addEventListener('webkitfullscreenchange', exitHandler);
+                    document.addEventListener('mozfullscreenchange', exitHandler);
+                    document.addEventListener('MSFullscreenChange', exitHandler);
+                    
+                    function exitHandler() {
+                        if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+                            var mapContainer = document.getElementById('mapContainer');
+                            var fullscreenBtn = document.getElementById('mapFullscreenBtn');
+                            
+                            mapContainer.classList.remove('map-fullscreen');
+                            fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                            myMap.behaviors.disable(['scrollZoom', 'dblClickZoom', 'drag', 'multiTouch']);
+                            isMapActive = false;
+                        }
+                    }
+                });
+                
+                function showMapNotification(message) {
+                    var notificationsContainer = document.getElementById('mapNotifications');
+                    
+                    var notification = document.createElement('div');
+                    notification.className = 'map-notification';
+                    notification.innerHTML = `
+                        <div class="map-notification-content">
+                            <i class="fas fa-info-circle"></i>
+                            <span>${message}</span>
+                        </div>
+                    `;
+                    
+                    notificationsContainer.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.classList.add('show');
+                    }, 10);
+                    
+                    setTimeout(function() {
+                        notification.classList.remove('show');
+                        setTimeout(function() {
+                            if (notification.parentNode) {
+                                notification.parentNode.removeChild(notification);
+                            }
+                        }, 300);
+                    }, 3000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

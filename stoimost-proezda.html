@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стоимость проезда - ПАТП №1 Вологда</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="styles/stoimost-proezda.css">
+    <style>
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333333;
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+
+        .header-area {
+            max-width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 60px;
+            max-width: 100%;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 0 0 auto;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .main-menu {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .main-menu nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .main-menu nav ul li {
+            position: relative;
+        }
+
+        .main-menu nav ul li a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 10px 18px;
+            color: #333333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        .main-menu nav ul li a:hover {
+            color: #3a6ce6;
+        }
+
+        .main-menu nav ul li a.menu-icon i {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .main-menu nav ul li:hover > a.menu-icon i {
+            transform: rotate(180deg);
+        }
+
+        .submenu-mainmenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 2px solid #3a6ce6;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .main-menu nav ul li:hover .submenu-mainmenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .submenu-mainmenu li {
+            width: 100%;
+        }
+
+        .submenu-mainmenu li a {
+            display: block;
+            padding: 10px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555555;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .submenu-mainmenu li:last-child a {
+            border-bottom: none;
+        }
+
+        .submenu-mainmenu li a:hover {
+            background-color: #f8f9fa;
+            color: #3a6ce6;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .header-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #4a7cff;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        .header-btn:hover {
+            background-color: #3a6ce6;
+            color: white;
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: transparent;
+            padding: 5px;
+            width: 40px;
+            height: 40px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .navbar-toggler span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #4a7cff;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .navbar-toggler.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .navbar-toggler.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            overflow-y: auto;
+            max-height: calc(100vh - 80px);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu-container {
+            padding: 20px;
+            max-width: 100%;
+        }
+
+        .mobile-menu-section {
+            margin-bottom: 25px;
+        }
+
+        .mobile-menu-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3a6ce6;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3a6ce6;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu-links li {
+            margin-bottom: 8px;
+        }
+
+        .mobile-menu-links a {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-menu-links a:hover {
+            background: #e9ecef;
+            border-left-color: #3a6ce6;
+            transform: translateX(5px);
+        }
+
+        .mobile-menu-links a i {
+            width: 20px;
+            margin-right: 12px;
+            text-align: center;
+            color: #3a6ce6;
+        }
+
+        .mobile-menu-links a.external-link::after {
+            content: "↗";
+            margin-left: auto;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .mobile-menu-buttons {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn.primary {
+            background: #3a6ce6;
+            color: white;
+        }
+
+        .mobile-menu-btn.primary:hover {
+            background: #2a5cd6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(58, 108, 230, 0.3);
+        }
+
+        .mobile-menu-btn.secondary {
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #e9ecef;
+        }
+
+        .mobile-menu-btn.secondary:hover {
+            background: #e9ecef;
+            border-color: #3a6ce6;
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+        }
+
+        body.mobile-menu-open {
+            overflow: hidden;
+        }
+
+        .breadcrumb-section {
+            background: linear-gradient(135deg, #3a6ce6 0%, #4a7cff 100%);
+            color: white;
+            padding: 60px 0 40px;
+            margin-bottom: 40px;
+        }
+
+        .breadcrumb-section h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .breadcrumb {
+            background: transparent;
+            justify-content: center;
+            margin-bottom: 0;
+        }
+
+        .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: white;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .content-section {
+            padding: 40px 0;
+        }
+
+        .price-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-icon {
+            font-size: 40px;
+            color: #3a6ce6;
+            margin-bottom: 15px;
+        }
+
+        .price-amount {
+            font-size: 36px;
+            font-weight: bold;
+            color: #3a6ce6;
+            margin-bottom: 8px;
+        }
+
+        .price-description {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .bank-card-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bank-card-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+            color: white;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+            overflow-x: auto;
+            border: 1px solid #e0e0e0;
+        }
+
+        .table-title {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #333;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .sales-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #3a6ce6;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sales-table th {
+            background: linear-gradient(135deg, #3a6ce6 0%, #4a7cff 100%);
+            color: white;
+            font-weight: 600;
+            padding: 16px 15px;
+            text-align: left;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sales-table td {
+            padding: 14px 15px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+            background: white;
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+
+        .sales-table tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+
+        .sales-table tr:hover td {
+            background: #e3f2fd;
+            transform: scale(1.002);
+        }
+
+        .sales-table tr:last-child td:first-child {
+            border-bottom-left-radius: 8px;
+        }
+
+        .sales-table tr:last-child td:last-child {
+            border-bottom-right-radius: 8px;
+        }
+
+        .map-link {
+            color: #3a6ce6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 1px dotted #3a6ce6;
+        }
+
+        .map-link:hover {
+            color: #2a5cd6;
+            text-decoration: none;
+            border-bottom: 1px solid #2a5cd6;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #333333;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #3a6ce6;
+            border-radius: 2px;
+        }
+
+        #toTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #000000;
+            color: white;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #toTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #toTop:hover {
+            background-color: #333333;
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background-color: #222222;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 0 1 300px;
+            max-width: 300px;
+        }
+
+        .footer-column h3 {
+            font-size: 21px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-contact-info {
+            margin-top: 20px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #bbbbbb;
+        }
+
+        .footer-contact-item i {
+            color: white;
+            width: 20px;
+        }
+
+        .footer-contact-item a {
+            color: #bbbbbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-item a:hover {
+            color: white;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-image-container {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .footer-image-container img {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333333;
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #3a6ce6;
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbbbbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444444;
+            color: #bbbbbb;
+            font-size: 14px;
+        }
+
+        @media (max-width: 992px) {
+            .header-container {
+                flex-wrap: nowrap;
+            }
+            
+            .header-right {
+                flex: 0 0 auto;
+            }
+            
+            .navbar-toggler {
+                display: flex;
+                margin-left: 10px;
+            }
+            
+            .main-menu {
+                display: none;
+            }
+            
+            .header-buttons {
+                display: none;
+            }
+
+            .footer-content {
+                gap: 30px;
+            }
+            
+            .footer-column {
+                flex: 0 1 280px;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px; 
+            }
+            
+            .breadcrumb-section {
+                padding: 40px 0 30px;
+            }
+            
+            .breadcrumb-section h1 {
+                font-size: 28px;
+            }
+            
+            .price-amount {
+                font-size: 32px;
+            }
+            
+            .table-container {
+                padding: 15px;
+                border-radius: 8px;
+            }
+            
+            .sales-table {
+                font-size: 12px;
+                border: 1px solid #3a6ce6;
+            }
+            
+            .sales-table th,
+            .sales-table td {
+                padding: 10px 8px;
+            }
+            
+            .sales-table th {
+                font-size: 13px;
+                padding: 12px 8px;
+            }
+            
+            #toTop {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-column {
+                flex: 1;
+                max-width: 400px;
+                width: 100%;
+            }
+            
+            .footer-bottom-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .footer-image-container {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .breadcrumb-section h1 {
+                font-size: 24px;
+            }
+            
+            .price-card {
+                padding: 15px;
+            }
+            
+            .price-amount {
+                font-size: 28px;
+            }
+            
+            #toTop {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .footer-content {
+                gap: 30px;
+            }
+            
+            .footer-column {
+                max-width: 100%;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .sales-table {
+                font-size: 11px;
+            }
+            
+            .sales-table th,
+            .sales-table td {
+                padding: 8px 6px;
+            }
+            
+            .sales-table th {
+                font-size: 12px;
+                padding: 10px 6px;
+            }
+
+            .mobile-menu {
+                top: 70px;
+                max-height: calc(100vh - 70px);
+            }
+            
+            .mobile-menu-overlay {
+                top: 70px;
+            }
+            
+            .mobile-menu-container {
+                padding: 15px;
+            }
+            
+            .mobile-menu-title {
+                font-size: 15px;
+            }
+            
+            .mobile-menu-links a {
+                padding: 10px 12px;
+                font-size: 14px;
+            }
+            
+            .mobile-menu-btn {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-area">
+        <div class="container-fluid">
+            <div class="header-container">
+                <div class="header-left">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="https://mupatp1.ru/assets/template/img/logo_Ptp.png" alt="Логотип ПАТП №1">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="header-center">
+                    <div class="main-menu">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="https://mupatp1.ru/raspisanie/" class="menu-icon">Расписание<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="https://citybus35.ru/" target="_blank">Умный транспорт</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="stoimost-proezda.html" class="menu-icon">Оплата проезда<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="https://bilet.nspk.ru/" target="_blank">Оплата банковской картой</a></li>
+                                        <li><a href="https://t-karta.ru" target="_blank">История поездок (кабинет)</a></li>
+                                    </ul>
+                                </li>
+                                <li class="active">
+                                    <a href="uslugi.html" class="menu-icon">Услуги<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="zakaznye-perevozki.html">Заказные перевозки</a></li>
+                                        <li><a href="passazhirskie-perevozki.html">Пассажирские перевозки</a></li>
+                                        <li><a href="perevozka-detej.html">Перевозка детей</a></li>
+                                        <li><a href="texnicheskoe-obsluzhivanie.html">Техническое обслуживание</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="o-kompanii.html" class="menu-icon">О компании<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="novosti.html">Новости</a></li>
+                                        <li><a href="kontakty.html">Контакты</a></li>
+                                        <li><a href="avtopark.html">Автопарк</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="oficialnaya-informaciya.html" class="menu-icon">Официальная информация<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="dokumenty.html">Документы</a></li>
+                                        <li><a href="protivodejstvie-korrupcii.html">Противодействие коррупции</a></li>
+                                        <li><a href="informaciya-ot-prokuratury.html">Информация от Прокуратуры г. Вологда</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-btn-dropdown">
+                        <button class="header-btn">
+                            <i class="fas fa-ticket-alt"></i> ВАШ БИЛЕТ <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="vash-bilet-dropdown">
+                            <li><a href="http://вашбилет.рф" target="_blank"><i class="fas fa-external-link-alt"></i> Перейти в систему</a></li>
+                            <li><a href="vash-bilet.html"><i class="fas fa-info-circle"></i> О системе</a></li>
+                        </ul>
+                    </div>
+                    
+                    <button class="navbar-toggler" id="navbarToggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-menu-container">
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Расписание</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="https://mupatp1.ru/raspisanie/"><i class="fas fa-bus"></i> Расписание автобусов</a></li>
+                            <li><a href="https://citybus35.ru/" target="_blank" class="external-link"><i class="fas fa-map-marked-alt"></i> Умный транспорт</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Оплата проезда</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="stoimost-proezda.html"><i class="fas fa-money-bill-wave"></i> Стоимость проезда</a></li>
+                            <li><a href="https://bilet.nspk.ru/" target="_blank" class="external-link"><i class="fas fa-credit-card"></i> Оплата картой</a></li>
+                            <li><a href="https://t-karta.ru" target="_blank" class="external-link"><i class="fas fa-history"></i> История поездок</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Услуги</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="uslugi.html"><i class="fas fa-concierge-bell"></i> Все услуги</a></li>
+                            <li><a href="zakaznye-perevozki.html"><i class="fas fa-bus-alt"></i> Заказные перевозки</a></li>
+                            <li><a href="passazhirskie-perevozki.html"><i class="fas fa-users"></i> Пассажирские перевозки</a></li>
+                            <li><a href="perevozka-detej.html"><i class="fas fa-child"></i> Перевозка детей</a></li>
+                            <li><a href="texnicheskoe-obsluzhivanie.html"><i class="fas fa-cogs"></i> Техническое обслуживание</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">О компании</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="o-kompanii.html"><i class="fas fa-building"></i> О нас</a></li>
+                            <li><a href="novosti.html"><i class="far fa-newspaper"></i> Новости</a></li>
+                            <li><a href="kontakty.html"><i class="fas fa-address-book"></i> Контакты</a></li>
+                            <li><a href="avtopark.html"><i class="fas fa-car"></i> Автопарк</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Официальная информация</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="oficialnaya-informaciya.html"><i class="fas fa-info-circle"></i> Официальная информация</a></li>
+                            <li><a href="dokumenty.html"><i class="fas fa-file-alt"></i> Документы</a></li>
+                            <li><a href="protivodejstvie-korrupcii.html"><i class="fas fa-gavel"></i> Противодействие коррупции</a></li>
+                            <li><a href="informaciya-ot-prokuratury.html"><i class="fas fa-balance-scale"></i> Информация от Прокуратуры</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">ВАШ БИЛЕТ</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="http://вашбилет.рф" target="_blank" class="external-link"><i class="fas fa-external-link-alt"></i> Перейти в систему</a></li>
+                            <li><a href="vash-bilet.html"><i class="fas fa-info-circle"></i> О системе</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="breadcrumb-section">
+        <div class="container">
+            <h1>Стоимость проезда</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+                    <li class="breadcrumb-item active">Стоимость проезда</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <div class="price-info">
+                        <h3 class="text-center mb-4">Тарифы на проезд</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 mb-4"> 
+                <div class="col-md-4">
+                    <div class="price-card">
+                        <div class="price-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="price-amount">40 ₽</div>
+                        <div class="price-description">Наличный расчет</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="price-card">
+                        <div class="price-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="price-amount">40 ₽</div>
+                        <div class="price-description">Безналичный расчет</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="price-card">
+                        <div class="price-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="price-amount">38 ₽</div>
+                        <div class="price-description">По карте "Забота"</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="additional-info">
+                        <p>Единый тариф на оплату проезда составляет <strong>40 рублей</strong> за одну поездку как при наличном, так и при безналичном расчете.
+                        Соответствующее постановление подписано и размещено на официальном сайте Администрации города Вологды. Необходимость в выравнивании наличного и безналичного тарифов в общественном транспорте ПАТП-1 связана с ростом цен на топливо, горюче-смазочные материалы, запчасти.</p>                        
+                        <h5 class="mt-4">Стоимость проездных билетов:</h5>
+                        <ul>
+                            <li>Обычный гражданский проездной - <strong>2 850 руб.</strong></li>
+                            <li>Проездной "Забота" - <strong>1 850 руб.</strong></li>
+                            <li>Студенческий проездной - <strong>1 800 руб.</strong></li>
+                            <li>Школьный проездной - <strong>1 600 руб.</strong></li>
+                        </ul>
+
+                        <div class="alert alert-info mt-4">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Также <strong>важно</strong>, что сохраняется возможность бесплатной пересадки на маршрутах ПАТП-1 в течение 30 минут.
+                        </div>
+
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-12 text-center">
+                                <a href="https://bilet.nspk.ru/" target="_blank" class="bank-card-btn">
+                                    <i class="fas fa-credit-card"></i> Оплата банковской картой
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Пункты продажи и пополнения</h2>
+                <p>Адреса и время работы пунктов продажи проездных билетов</p>
+            </div>
+            
+            <div class="table-container">
+                <table class="sales-table">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">№</th>
+                            <th>Наименование пункта</th>
+                            <th>Адрес</th>
+                            <th>Телефон</th>
+                            <th>Время работы</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">1</td>
+                            <td>Информационно-справочный центр</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwmA0OG" target="_blank" class="map-link">ул. Пушкинская, 15</a></td>
+                            <td>8 (800) 200-44-88</td>
+                            <td>Пн-Пт: 09:00-18:00<br><small>(перерыв 14:00-15:00)</small></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">2</td>
+                            <td>Пункт продаж</td>
+                            <td><a href="http://maps.yandex.ru/-/CVvRzGOk" target="_blank" class="map-link">ул. Конева, 33</a></td>
+                            <td>-</td>
+                            <td>9:00-20:00<br><small>(перерыв 14:00-15:00)</small></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">3</td>
+                            <td>ТЦ "Остров"</td>
+                            <td><a href="http://maps.yandex.ru/-/CVbcMIMI" target="_blank" class="map-link">ул. Северная, 7</a></td>
+                            <td>-</td>
+                            <td>9:00-20:00<br><small>(перерыв 14:00-15:00)</small></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">4</td>
+                            <td>Кассы автовокзала<br><small>(ГП ВО «ДОАП»)</small></td>
+                            <td><a href="https://maps.yandex.ru/-/CVDCnCOt" target="_blank" class="map-link">пл. Бабушкина, 10</a></td>
+                            <td>-</td>
+                            <td>5:30-21:00</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">5</td>
+                            <td>Вологодский почтамт</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmAZz" target="_blank" class="map-link">Советский пр., 4</a></td>
+                            <td>72-16-34</td>
+                            <td>Пн-Пт: 8:00-22:00<br>Сб-Вс: 9:00-18:00</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">6</td>
+                            <td>Отделение "Почты России" в Лосте</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmKOU" target="_blank" class="map-link">ул. Пионерская, 32</a></td>
+                            <td>74-91-55</td>
+                            <td>Пн-Пт: 8:00-22:00<br>Сб-Вс: 9:00-18:00</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">7</td>
+                            <td>Отделение "Почты России" в Прилуках</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmKOU" target="_blank" class="map-link">ул. Колхозная, 14а</a></td>
+                            <td>8 (800) 100-00-00</td>
+                            <td>Пн-Пт: 8:00-22:00<br>Сб-Вс: 9:00-18:00</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">8</td>
+                            <td>Отделение "Почты России" №1</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmAok" target="_blank" class="map-link">ул. Мира, 38</a></td>
+                            <td>57-13-34</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">9</td>
+                            <td>Отделение "Почты России" №2</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmIyy" target="_blank" class="map-link">ул. Тендрякова, 2</a></td>
+                            <td>53-00-54</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">10</td>
+                            <td>Отделение "Почты России" №4</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmI1M" target="_blank" class="map-link">пр. Победы, 70</a></td>
+                            <td>21-67-50</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">11</td>
+                            <td>Отделение "Почты России" №5</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmI1M" target="_blank" class="map-link">Окружное шоссе,26</a></td>
+                            <td>8 (800) 100-00-00</td>
+                            <td>Пн-Сб: 12:00-18:00<br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">12</td>
+                            <td>Отделение "Почты России" №9</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmMpd" target="_blank" class="map-link">пл. Бабушкина, 1</a></td>
+                            <td>56-05-63</td>
+                            <td>Пн-Пт: 8:00-22:00<br>Сб: 9:00-18:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: 9:00-18:00<br><small>(перерыв 13:00-14:00)</small></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">13</td>
+                            <td>Отделение "Почты России" №10</td>
+                            <td><a href="http://maps.yandex.ru/-/CVriVHlm" target="_blank" class="map-link">ул. Кубинская, 11</a></td>
+                            <td>78-50-90</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">14</td>
+                            <td>Отделение "Почты России" №11</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmUjV" target="_blank" class="map-link">ул. Герцена, 61</a></td>
+                            <td>75-32-04</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">15</td>
+                            <td>Отделение "Почты России" №12</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmYzp" target="_blank" class="map-link">ул. Яшина, 3</a></td>
+                            <td>75-20-96</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">16</td>
+                            <td>Отделение "Почты России" №14</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhm4Jb" target="_blank" class="map-link">ул. Некрасова, 67</a></td>
+                            <td>27-02-22</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">17</td>
+                            <td>Отделение "Почты России" №17</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmBz4" target="_blank" class="map-link">Тепличный мкр., 2</a></td>
+                            <td>71-07-21</td>
+                            <td>Пн-Пт: 9:00-17:00<br>Сб: 9:00-16:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">18</td>
+                            <td>Отделение "Почты России" №19</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmFms" target="_blank" class="map-link">ул. Чернышевского, 108</a></td>
+                            <td>54-14-37</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">19</td>
+                            <td>Отделение "Почты России" №22</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmJ2e" target="_blank" class="map-link">ул. Новгородская, 23</a></td>
+                            <td>71-72-29</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br>Вс: 9:00-14:00</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">20</td>
+                            <td>Отделение "Почты России" №23</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmNj9" target="_blank" class="map-link">ул. Молодежная, 5б</a></td>
+                            <td>8 (800) 100-00-00</td>
+                            <td>Пн-Пт: 11:00-19:00<br>Сб: 10:00-16:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">21</td>
+                            <td>Отделение "Почты России" №24</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmNj9" target="_blank" class="map-link">ул. Северная, 17</a></td>
+                            <td>27-12-62</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br>Вс: 9:00-18:00</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">22</td>
+                            <td>Отделение "Почты России" №25</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmR2V" target="_blank" class="map-link">ул. Конева, 3</a></td>
+                            <td>73-81-60</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">23</td>
+                            <td>Отделение "Почты России" №26</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmVjt" target="_blank" class="map-link">ул. Панкратова, 80-а</a></td>
+                            <td>53-17-40</td>
+                            <td>Пн-Пт: 9:00-17:00<br>Сб: 9:00-16:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">24</td>
+                            <td>Отделение "Почты России" №28</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmZNp" target="_blank" class="map-link">ул. Ильюшина, 4</a></td>
+                            <td>51-30-41</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">25</td>
+                            <td>Отделение "Почты России" №29</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmZP3" target="_blank" class="map-link">ул. Северная, 6</a></td>
+                            <td>27-14-00</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">26</td>
+                            <td>Отделение "Почты России" №31</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhm6zn" target="_blank" class="map-link">ул. Авксентьевского, 6</a></td>
+                            <td>21-15-13</td>
+                            <td>Пн-Пт: 8:00-19:00<br>Сб: 9:00-16:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">27</td>
+                            <td>Отделение "Почты России" №32</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmCYw" target="_blank" class="map-link">Технический пер., 46-б</a></td>
+                            <td>73-94-30</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">28</td>
+                            <td>Отделение "Почты России" №33</td>
+                            <td><a href="http://maps.yandex.ru/-/CVriVTi9" target="_blank" class="map-link">ул. Дзержинского, 37</a></td>
+                            <td>74-58-08</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00<br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">29</td>
+                            <td>Отделение "Почты России" №34</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmC2L" target="_blank" class="map-link">ул. Ленинградская, 93</a></td>
+                            <td>53-64-08</td>
+                            <td>Пн-Пт: 8:00-20:00<br>Сб: 9:00-19:00<br>Вс: 9:00-19:00</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">30</td>
+                            <td>Отделение "Почты России" в с.Молочное</td>
+                            <td><a href="https://maps.yandex.ru/-/CVwhmG52" target="_blank" class="map-link">ул. Шмидта, 28</a></td>
+                            <td>52-53-64</td>
+                            <td>Пн-Пт: 11:00-19:00<br>Сб: 10:00-16:00<br><small>(перерыв 13:00-14:00)</small><br>Вс: выходной</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; text-align: center;">31</td>
+                            <td>АО «ПАТП №1» (бухгалтерия)</td>
+                            <td><a href="https://yandex.ru/maps/-/CKqwmIzF" target="_blank" class="map-link">ул. Мудрова, 31</a></td>
+                            <td>55-66-70</td>
+                            <td>Пн-Пт: 09:00-16:00<br><small>(перерыв 12:00-13:00)</small></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>О нас</h3>
+                    
+                    <div class="footer-contact-info">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+78172556670">+7 (8172) 55-66-70</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:mail@mupatp1.ru">mail@mupatp1.ru</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-bottom-content">
+                        <div class="footer-image-container">
+                            <img src="img/win.png" alt="Победа">
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/patp1vologda" target="_blank"><i class="fab fa-vk"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Основные разделы</h3>
+                    <ul class="footer-links">
+                        <li><a href="about/">О компании</a></li>
+                        <li><a href="https://mupatp1.ru/raspisanie/">Расписание</a></li>
+                        <li><a href="oplata-proezda/">Оплата проезда</a></li>
+                        <li><a href="services/">Услуги</a></li>
+                        <li><a href="news/">Новости</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Полезные ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://citybus35.ru/" target="_blank">Умный транспорт</a></li>
+                        <li><a href="https://bilet.nspk.ru/" target="_blank">Оплата банковской картой</a></li>
+                        <li><a href="https://t-karta.ru" target="_blank">История поездок</a></li>
+                        <li><a href="work">Работа у нас</a></li>
+                        <li><a href="dokumentyi">Документы</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 АО «ПАТП №1». Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const navbarToggler = document.getElementById('navbarToggler');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        navbarToggler.addEventListener('click', function() {
+            const isActive = this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            mobileMenuOverlay.classList.toggle('active');
+            document.body.classList.toggle('mobile-menu-open', isActive);
+        });
+        
+        mobileMenuOverlay.addEventListener('click', function() {
+            navbarToggler.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            this.classList.remove('active');
+            document.body.classList.remove('mobile-menu-open');
+        });
+        
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (this.getAttribute('target') === '_blank') {
+                    return;
+                }
+                
+                navbarToggler.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            });
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                navbarToggler.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            }
+        });
+        
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 992 && mobileMenu.classList.contains('active')) {
+                navbarToggler.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+            }
+        });
+
+        const scrollButton = document.getElementById('toTop');
+        
+        function toggleScrollButton() {
+            if (window.scrollY > 300) {
+                scrollButton.classList.add('show');
+            } else {
+                scrollButton.classList.remove('show');
+            }
+        }
+        
+        toggleScrollButton();
+        
+        window.addEventListener('scroll', toggleScrollButton);
+        
+        scrollButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
