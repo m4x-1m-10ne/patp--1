@@ -1028,33 +1028,6 @@ footer {
     .navbar-toggler {
         display: flex;
     }
-    
-    .mobile-menu {
-        top: 80px;
-        max-height: calc(100vh - 80px);
-    }
-    
-    .mobile-menu-overlay {
-        top: 80px;
-    }
-    
-    .mobile-menu-container {
-        padding: 25px;
-    }
-    
-    .mobile-menu-title {
-        font-size: 18px;
-    }
-    
-    .mobile-menu-links a {
-        padding: 16px 20px;
-        font-size: 16px;
-    }
-    
-    .mobile-menu-links a i {
-        font-size: 18px;
-        width: 24px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -1323,50 +1296,5 @@ footer {
     .mobile-menu-links a {
         padding: 18px 22px;
         font-size: 17px;
-    }
-}
-
-@media (max-height: 500px) and (orientation: landscape) {
-    .hero {
-        padding: 80px 20px;
-    }
-    
-    .hero h1 {
-        font-size: 32px;
-    }
-    
-    .mobile-menu {
-        max-height: 70vh;
-    }
-    
-    .stats {
-        margin: 30px 0;
-    }
-}
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .logo img {
-        image-rendering: -webkit-optimize-contrast;
-    }
-}
-
-@media (hover: none) and (pointer: coarse) {
-    .main-menu nav ul li:hover .submenu-mainmenu {
-        display: none;
-    }
-    
-    .advantage-item:hover,
-    .news-card:hover {
-        transform: none;
-    }
-    
-    .btn:hover,
-    .header-btn:hover {
-        transform: none;
-    }
-    
-    .mobile-menu-links a:hover {
-        transform: none;
-        background: #f8f9fa;
     }
 }
