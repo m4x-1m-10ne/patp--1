@@ -9,6 +9,7 @@ body {
     color: #333333;
     line-height: 1.6;
     padding-top: 80px;
+    font-size: 16px;
 }
 
 .header-area {
@@ -1028,6 +1029,65 @@ footer {
     .navbar-toggler {
         display: flex;
     }
+    
+    body {
+        font-size: 17px;
+    }
+    
+    .hero h1 {
+        font-size: 42px;
+    }
+    
+    .hero p {
+        font-size: 19px;
+    }
+    
+    .btn {
+        padding: 14px 32px;
+        font-size: 17px;
+    }
+    
+    .stats {
+        gap: 25px;
+        margin: 50px 0;
+    }
+    
+    .stat-item {
+        padding: 28px 18px;
+    }
+    
+    .stat-number {
+        font-size: 44px;
+    }
+    
+    .stat-text {
+        font-size: 17px;
+    }
+    
+    .section-title h2 {
+        font-size: 32px;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .advantage-item {
+        padding: 22px 15px;
+    }
+    
+    .advantage-icon {
+        font-size: 32px;
+    }
+    
+    .advantage-item h4 {
+        font-size: 17px;
+    }
+    
+    .advantage-item p {
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1045,21 +1105,21 @@ footer {
     }
     
     .header-btn {
-        padding: 12px 18px;
+        padding: 14px 20px;
         font-size: 16px;
     }
     
     .hero {
-        padding: 120px 20px;
+        padding: 140px 20px;
     }
     
     .hero h1 {
-        font-size: 42px;
+        font-size: 38px;
         margin-bottom: 25px;
     }
     
     .hero p {
-        font-size: 20px;
+        font-size: 18px;
         margin-bottom: 35px;
     }
     
@@ -1074,23 +1134,24 @@ footer {
     }
     
     .stat-item {
-        padding: 35px 25px;
+        padding: 32px 22px;
+        flex: 0 0 calc(50% - 20px);
     }
     
     .stat-content {
-        gap: 15px;
+        gap: 12px;
     }
     
     .stat-icon {
-        font-size: 45px;
+        font-size: 42px;
     }
     
     .stat-number {
-        font-size: 52px;
+        font-size: 48px;
     }
     
     .stat-text {
-        font-size: 20px;
+        font-size: 18px;
     }
     
     .advantages-grid {
@@ -1099,19 +1160,19 @@ footer {
     }
     
     .advantage-item {
-        padding: 30px 25px;
+        padding: 28px 22px;
     }
     
     .advantage-icon {
-        font-size: 42px;
+        font-size: 38px;
     }
     
     .advantage-item h4 {
-        font-size: 22px;
+        font-size: 20px;
     }
     
     .advantage-item p {
-        font-size: 18px;
+        font-size: 16px;
     }
     
     .news-grid {
@@ -1120,11 +1181,11 @@ footer {
     }
     
     .news-content h3 {
-        font-size: 24px;
+        font-size: 22px;
     }
     
     .news-content p {
-        font-size: 18px;
+        font-size: 16px;
     }
     
     .map-container {
@@ -1132,25 +1193,25 @@ footer {
     }
     
     .section {
-        padding: 60px 0;
+        padding: 50px 0;
     }
     
     .section-title {
-        margin-bottom: 45px;
+        margin-bottom: 40px;
     }
     
     .section-title h2 {
-        font-size: 38px;
+        font-size: 32px;
     }
     
     .section-title p {
-        font-size: 20px;
+        font-size: 18px;
     }
     
     .footer-content {
         flex-direction: column;
         gap: 35px;
-        margin-bottom: 45px;
+        margin-bottom: 40px;
     }
     
     .footer-column {
@@ -1160,30 +1221,30 @@ footer {
     }
     
     .footer-column h3 {
-        font-size: 24px;
-        margin-bottom: 25px;
+        font-size: 22px;
+        margin-bottom: 20px;
     }
     
     .footer-contact-info {
-        margin-top: 25px;
+        margin-top: 20px;
     }
     
     .footer-contact-item {
         justify-content: center;
-        margin-bottom: 18px;
-        font-size: 18px;
+        margin-bottom: 15px;
+        font-size: 16px;
     }
     
     .footer-bottom-content {
         flex-direction: column;
         align-items: center;
-        gap: 25px;
-        margin-top: 30px;
+        gap: 20px;
+        margin-top: 25px;
     }
     
     .footer-image-container {
-        width: 90px;
-        height: 90px;
+        width: 85px;
+        height: 85px;
     }
     
     .social-links {
@@ -1195,20 +1256,20 @@ footer {
     }
     
     .footer-links a {
-        font-size: 18px;
+        font-size: 16px;
     }
     
     .copyright {
-        font-size: 16px;
-        padding-top: 25px;
+        font-size: 15px;
+        padding-top: 20px;
     }
     
     #toTop,
     #workButton {
-        width: 60px;
-        height: 60px;
+        width: 55px;
+        height: 55px;
         bottom: 25px;
-        font-size: 22px;
+        font-size: 20px;
     }
     
     #toTop {
@@ -1220,81 +1281,346 @@ footer {
     }
     
     .job-popup {
-        padding: 35px;
-        margin: 25px;
+        padding: 30px;
+        margin: 20px;
     }
     
     .job-popup-icon i {
-        font-size: 70px;
+        font-size: 65px;
     }
     
     .job-popup h3 {
-        font-size: 28px;
+        font-size: 26px;
     }
     
     .job-popup p {
-        font-size: 18px;
+        font-size: 16px;
     }
     
     .job-popup-buttons {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
     }
     
     .job-popup-btn {
         width: 100%;
         text-align: center;
-        padding: 16px 30px;
-        font-size: 18px;
+        padding: 14px 28px;
+        font-size: 16px;
     }
     
     .mobile-menu-container {
-        padding: 30px;
+        padding: 25px;
     }
     
     .mobile-menu-title {
-        font-size: 20px;
-    }
-    
-    .mobile-menu-links a {
-        padding: 20px 25px;
         font-size: 18px;
-    }
-    
-    .mobile-menu-links a i {
-        font-size: 20px;
-        width: 28px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 36px;
-    }
-    
-    .hero p {
-        font-size: 18px;
-    }
-    
-    .stat-number {
-        font-size: 48px;
-    }
-    
-    .stat-text {
-        font-size: 18px;
-    }
-    
-    .section-title h2 {
-        font-size: 32px;
-    }
-    
-    .btn {
-        padding: 14px 32px;
-        font-size: 17px;
     }
     
     .mobile-menu-links a {
         padding: 18px 22px;
+        font-size: 16px;
+    }
+    
+    .mobile-menu-links a i {
+        font-size: 18px;
+        width: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
         font-size: 17px;
+        padding-top: 65px;
+    }
+    
+    .header-container {
+        padding: 0 10px;
+    }
+    
+    .logo img {
+        height: 50px;
+    }
+    
+    .header-btn {
+        padding: 12px 16px;
+        font-size: 15px;
+    }
+    
+    .hero {
+        padding: 120px 15px;
+    }
+    
+    .hero h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    
+    .hero p {
+        font-size: 17px;
+        margin-bottom: 30px;
+    }
+    
+    .btn {
+        padding: 15px 30px;
+        font-size: 17px;
+    }
+    
+    .stats {
+        gap: 15px;
+        margin: 40px 0;
+        flex-direction: column;
+    }
+    
+    .stat-item {
+        flex: 1;
+        min-width: 100%;
+        padding: 28px 20px;
+        margin-bottom: 0;
+    }
+    
+    .stat-content {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 12px;
+    }
+    
+    .stat-icon {
+        font-size: 38px;
+    }
+    
+    .stat-number {
+        font-size: 42px;
+    }
+    
+    .stat-text {
+        font-size: 17px;
+    }
+    
+    .stat-divider {
+        display: block;
+        font-size: 30px;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .advantage-item {
+        padding: 25px 20px;
+    }
+    
+    .advantage-icon {
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+    
+    .advantage-item h4 {
+        font-size: 19px;
+        margin-bottom: 12px;
+    }
+    
+    .advantage-item p {
+        font-size: 16px;
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .news-card {
+        margin-bottom: 0;
+    }
+    
+    .news-content {
+        padding: 18px;
+    }
+    
+    .news-content h3 {
+        font-size: 20px;
+    }
+    
+    .news-content p {
+        font-size: 16px;
+    }
+    
+    .map-container {
+        height: 350px;
+    }
+    
+    .map-controls {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .map-control-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+    
+    .section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        margin-bottom: 30px;
+    }
+    
+    .section-title h2 {
+        font-size: 28px;
+    }
+    
+    .section-title p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+    
+    .footer-content {
+        gap: 30px;
+        margin-bottom: 35px;
+    }
+    
+    .footer-column h3 {
+        font-size: 20px;
+    }
+    
+    .footer-contact-item {
+        font-size: 15px;
+    }
+    
+    .footer-image-container {
+        width: 75px;
+        height: 75px;
+    }
+    
+    .footer-links a {
+        font-size: 15px;
+    }
+    
+    .copyright {
+        font-size: 14px;
+    }
+    
+    #toTop,
+    #workButton {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        font-size: 18px;
+    }
+    
+    #toTop {
+        right: 20px;
+    }
+    
+    #workButton {
+        left: 20px;
+    }
+    
+    .job-popup {
+        padding: 25px;
+        margin: 15px;
+    }
+    
+    .job-popup-icon i {
+        font-size: 55px;
+    }
+    
+    .job-popup h3 {
+        font-size: 22px;
+    }
+    
+    .job-popup p {
+        font-size: 15px;
+    }
+    
+    .job-popup-btn {
+        padding: 13px 25px;
+        font-size: 15px;
+    }
+    
+    .mobile-menu-links a {
+        padding: 16px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+    
+    .stat-number {
+        font-size: 38px;
+    }
+    
+    .stat-text {
+        font-size: 16px;
+    }
+    
+    .section-title h2 {
+        font-size: 26px;
+    }
+    
+    .btn {
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+    
+    .mobile-menu-links a {
+        padding: 15px 18px;
+        font-size: 15px;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        padding: 100px 20px;
+    }
+    
+    .hero h1 {
+        font-size: 32px;
+    }
+    
+    .mobile-menu {
+        max-height: 70vh;
+    }
+    
+    .stats {
+        margin: 30px 0;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .header-center {
+        display: none;
+    }
+    
+    .navbar-toggler {
+        display: flex;
+    }
+    
+    .hero {
+        padding: 120px 20px;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .stats {
+        gap: 20px;
+    }
+    
+    .stat-item {
+        padding: 25px 15px;
     }
 }
