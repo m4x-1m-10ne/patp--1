@@ -3,840 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакты | ПАТП №1 - Пассажирские перевозки в Вологде</title>
+    <title>Контакты - АО «ПАТП №1»</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" href="styles/kontakty.css">
-    <style>
-        :root {
-            --primary-color: #3a6ce6;
-            --secondary-color: #4a7cff;
-            --text-color: #333333;
-            --light-bg: #f8f9fa;
-        }
-
-        html, body {
-            overflow-x: hidden;
-            max-width: 100%;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light-bg);
-            color: var(--text-color);
-            line-height: 1.6;
-            padding-top: 80px;
-        }
-
-        .header-area {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
-
-        .logo img {
-            height: 60px;
-            max-width: 100%;
-        }
-
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex: 0 0 auto;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            flex: 1;
-            justify-content: flex-end;
-        }
-
-        .main-menu {
-            display: flex;
-            align-items: center;
-            flex: 1;
-            justify-content: center;
-        }
-
-        .main-menu nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 5px;
-            justify-content: center;
-        }
-
-        .main-menu nav ul li {
-            position: relative;
-        }
-
-        .main-menu nav ul li a {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 10px 18px;
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            font-size: 14px;
-        }
-
-        .main-menu nav ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        .main-menu nav ul li a.menu-icon i {
-            font-size: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .main-menu nav ul li:hover > a.menu-icon i {
-            transform: rotate(180deg);
-        }
-
-        .submenu-mainmenu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            min-width: 220px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-top: 2px solid var(--primary-color);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .main-menu nav ul li:hover .submenu-mainmenu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .submenu-mainmenu li {
-            width: 100%;
-        }
-
-        .submenu-mainmenu li a {
-            display: block;
-            padding: 10px 15px;
-            border-bottom: 1px solid #f0f0f0;
-            color: #555555;
-            text-decoration: none;
-            font-size: 13px;
-            transition: all 0.3s ease;
-        }
-
-        .submenu-mainmenu li:last-child a {
-            border-bottom: none;
-        }
-
-        .submenu-mainmenu li a:hover {
-            background-color: var(--light-bg);
-            color: var(--primary-color);
-        }
-
-        .header-buttons {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin-left: 20px;
-        }
-
-        .header-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: none;
-            white-space: nowrap;
-            font-size: 14px;
-        }
-
-        .header-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .navbar-toggler {
-            border: none;
-            background: transparent;
-            padding: 5px;
-            width: 40px;
-            height: 40px;
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .navbar-toggler span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background-color: var(--secondary-color);
-            margin: 3px 0;
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .navbar-toggler.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .navbar-toggler.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .navbar-toggler.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        .mobile-menu-overlay {
-            display: none;
-            position: fixed;
-            top: 80px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-        }
-
-        .mobile-menu-overlay.active {
-            display: block;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 80px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: white;
-            z-index: 999;
-            overflow-y: auto;
-            max-height: calc(100vh - 80px);
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        .mobile-menu-container {
-            padding: 20px;
-        }
-
-        .mobile-menu-section {
-            margin-bottom: 25px;
-        }
-
-        .mobile-menu-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .mobile-menu-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .mobile-menu-links li {
-            margin-bottom: 8px;
-        }
-
-        .mobile-menu-links a {
-            display: flex;
-            align-items: center;
-            padding: 12px 15px;
-            background: var(--light-bg);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .mobile-menu-links a:hover {
-            background: #e9ecef;
-            border-left-color: var(--primary-color);
-            transform: translateX(5px);
-        }
-
-        .mobile-menu-links a i {
-            width: 20px;
-            margin-right: 12px;
-            text-align: center;
-            color: var(--primary-color);
-        }
-
-        .mobile-menu-links a.external-link::after {
-            content: "↗";
-            margin-left: auto;
-            font-size: 14px;
-            color: #666;
-        }
-
-        .mobile-menu-buttons {
-            margin-top: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .mobile-menu-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 15px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-btn.primary {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .mobile-menu-btn.primary:hover {
-            background: #2a5cd6;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(58, 108, 230, 0.3);
-        }
-
-        body.mobile-menu-open {
-            overflow: hidden;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://mupatp1.ru/assets/components/phpthumbof/cache/DSC05778-min.9b2c824ee3b158a8518e8db344e0f9667.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 120px 20px 80px;
-            margin-bottom: 0;
-        }
-
-        .hero h1 {
-            font-size: 36px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: 0 auto 25px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: #3a6ce6;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .btn:hover {
-            background-color: #2a5cd6;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            color: white;
-        }
-
-        .section {
-            padding: 50px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title h2 {
-            font-size: 32px;
-            color: var(--text-color);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: #666666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .contact-card {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-card h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--light-bg);
-            padding-bottom: 10px;
-        }
-
-        .contact-info {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .contact-info li {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .contact-info li:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .contact-info i {
-            width: 20px;
-            text-align: center;
-            color: var(--primary-color);
-            margin-top: 3px;
-            flex-shrink: 0;
-        }
-
-        .contact-info .content {
-            flex: 1;
-        }
-
-        .contact-info strong {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--text-color);
-        }
-
-        .contact-info a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: var(--primary-color);
-        }
-
-        .requisites {
-            background: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 50px;
-        }
-
-        .requisites h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--light-bg);
-            padding-bottom: 10px;
-        }
-
-        .requisites-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .requisite-item {
-            margin-bottom: 15px;
-        }
-
-        .requisite-item strong {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--text-color);
-        }
-
-        footer {
-            background-color: #222222;
-            color: white;
-            padding: 60px 0 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .footer-column {
-            flex: 0 1 300px;
-            max-width: 300px;
-        }
-
-        .footer-column h3 {
-            font-size: 21px;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .footer-contact-info {
-            margin-top: 20px;
-        }
-
-        .footer-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            color: #bbbbbb;
-        }
-
-        .footer-contact-item i {
-            color: white;
-            width: 20px;
-        }
-
-        .footer-contact-item a {
-            color: #bbbbbb;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-contact-item a:hover {
-            color: white;
-        }
-
-        .footer-bottom-content {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-image-container {
-            width: 80px;
-            height: 80px;
-            border-radius: 10px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .footer-image-container img {
-            width: 100%;
-            height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #333333;
-            color: white;
-            border-radius: 20px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .footer-links {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #bbbbbb;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444444;
-            color: #bbbbbb;
-            font-size: 14px;
-        }
-
-        #toTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: #000000;
-            color: white;
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 9999;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        #toTop.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #toTop:hover {
-            background-color: #333333;
-            transform: translateY(-3px);
-        }
-
-        @media (max-width: 992px) {
-            .header-container {
-                flex-wrap: nowrap;
-            }
-            
-            .header-right {
-                flex: 0 0 auto;
-            }
-            
-            .navbar-toggler {
-                display: flex;
-                margin-left: 10px;
-            }
-            
-            .main-menu {
-                display: none;
-            }
-            
-            .header-buttons {
-                display: none;
-            }
-
-            .footer-content {
-                gap: 30px;
-            }
-            
-            .footer-column {
-                flex: 0 1 280px;
-                max-width: 280px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding-top: 70px; 
-            }
-            
-            .hero {
-                padding: 100px 20px 60px;
-            }
-            
-            .hero h1 {
-                font-size: 28px;
-            }
-            
-            .hero p {
-                font-size: 16px;
-            }
-            
-            .section {
-                padding: 40px 0;
-            }
-            
-            .section-title {
-                margin-bottom: 30px;
-            }
-            
-            .section-title h2 {
-                font-size: 29px;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            #toTop {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .footer-column {
-                flex: 1;
-                max-width: 400px;
-                width: 100%;
-            }
-            
-            .footer-bottom-content {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-            
-            .footer-image-container {
-                width: 60px;
-                height: 60px;
-            }
-
-            .mobile-menu {
-                top: 70px;
-                max-height: calc(100vh - 70px);
-            }
-            
-            .mobile-menu-overlay {
-                top: 70px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero {
-                padding: 80px 20px 40px;
-            }
-            
-            .hero h1 {
-                font-size: 24px;
-            }
-            
-            .hero p {
-                font-size: 14px;
-            }
-            
-            .section-title h2 {
-                font-size: 26px;
-            }
-            
-            #toTop {
-                bottom: 15px;
-                right: 15px;
-                width: 40px;
-                height: 40px;
-            }
-            
-            .footer-content {
-                gap: 30px;
-            }
-            
-            .footer-column {
-                max-width: 100%;
-            }
-
-            .logo img {
-                height: 50px;
-            }
-
-            .mobile-menu-container {
-                padding: 15px;
-            }
-        }
-    </style>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 </head>
 <body>
     <header class="header-area">
@@ -850,7 +21,7 @@
                     </div>
                 </div>
                 
-                <div class="header-right">
+                <div class="header-center">
                     <div class="main-menu">
                         <nav>
                             <ul>
@@ -861,10 +32,11 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="stoimost-proezda.html" class="menu-icon">Оплата проезда<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <a href="oplata-proezda.html" class="menu-icon">Оплата проезда<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="submenu-mainmenu">
                                         <li><a href="https://bilet.nspk.ru/" target="_blank">Оплата банковской картой</a></li>
                                         <li><a href="https://t-karta.ru" target="_blank">История поездок (кабинет)</a></li>
+                                        <li><a href="pravila-asop.html">Правила АСОП</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -876,32 +48,31 @@
                                         <li><a href="texnicheskoe-obsluzhivanie.html">Техническое обслуживание</a></li>
                                     </ul>
                                 </li>
-                                <li class="active">
+                                <li>
                                     <a href="o-kompanii.html" class="menu-icon">О компании<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="submenu-mainmenu">
                                         <li><a href="novosti.html">Новости</a></li>
                                         <li><a href="kontakty.html">Контакты</a></li>
-                                        <li><a href="dokumenty.html">Документы</a></li>
-                                        <li><a href="protivodejstvie-korrupcii.html">Противодействие коррупции</a></li>
                                         <li><a href="avtopark.html">Автопарк</a></li>
-                                        <li><a href="http://вашбилет.рф" target="_blank">Ваш билет</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="oficialnaya-informaciya.html" class="menu-icon">Официальная информация<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                     <ul class="submenu-mainmenu">
+                                        <li><a href="dokumenty.html">Документы</a></li>
+                                        <li><a href="protivodejstvie-korrupcii.html">Противодействие коррупции</a></li>
                                         <li><a href="informaciya-ot-prokuratury.html">Информация от Прокуратуры г. Вологда</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </nav>
                     </div>
-                    
-                    <div class="header-buttons">
-                        <a href="vash-bilet.html" class="header-btn">
-                            <i class="fas fa-ticket-alt"></i> ВАШ БИЛЕТ
-                        </a>
-                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <a href="rabota.html" class="header-btn">
+                        <i class="fas fa-briefcase"></i> РАБОТА У НАС
+                    </a>
                     
                     <button class="navbar-toggler" id="navbarToggler">
                         <span></span>
@@ -925,9 +96,10 @@
                     <div class="mobile-menu-section">
                         <h3 class="mobile-menu-title">Оплата проезда</h3>
                         <ul class="mobile-menu-links">
-                            <li><a href="stoimost-proezda.html"><i class="fas fa-money-bill-wave"></i> Стоимость проезда</a></li>
+                            <li><a href="oplata-proezda.html"><i class="fas fa-money-bill-wave"></i> Стоимость проезда</a></li>
                             <li><a href="https://bilet.nspk.ru/" target="_blank" class="external-link"><i class="fas fa-credit-card"></i> Оплата картой</a></li>
                             <li><a href="https://t-karta.ru" target="_blank" class="external-link"><i class="fas fa-history"></i> История поездок</a></li>
+                            <li><a href="pravila-asop.html"><i class="fas fa-file-contract"></i> Правила АСОП</a></li>
                         </ul>
                     </div>
                     
@@ -948,10 +120,7 @@
                             <li><a href="o-kompanii.html"><i class="fas fa-building"></i> О нас</a></li>
                             <li><a href="novosti.html"><i class="far fa-newspaper"></i> Новости</a></li>
                             <li><a href="kontakty.html"><i class="fas fa-address-book"></i> Контакты</a></li>
-                            <li><a href="dokumenty.html"><i class="fas fa-file-alt"></i> Документы</a></li>
-                            <li><a href="protivodejstvie-korrupcii.html"><i class="fas fa-gavel"></i> Противодействие коррупции</a></li>
                             <li><a href="avtopark.html"><i class="fas fa-car"></i> Автопарк</a></li>
-                            <li><a href="http://вашбилет.рф" target="_blank" class="external-link"><i class="fas fa-ticket-alt"></i> Ваш билет</a></li>
                         </ul>
                     </div>
                     
@@ -959,24 +128,28 @@
                         <h3 class="mobile-menu-title">Официальная информация</h3>
                         <ul class="mobile-menu-links">
                             <li><a href="oficialnaya-informaciya.html"><i class="fas fa-info-circle"></i> Официальная информация</a></li>
+                            <li><a href="dokumenty.html"><i class="fas fa-file-alt"></i> Документы</a></li>
+                            <li><a href="protivodejstvie-korrupcii.html"><i class="fas fa-gavel"></i> Противодействие коррупции</a></li>
                             <li><a href="informaciya-ot-prokuratury.html"><i class="fas fa-balance-scale"></i> Информация от Прокуратуры</a></li>
                         </ul>
-                    </div>
-                    
-                    <div class="mobile-menu-buttons">
-                        <a href="vash-bilet.html" class="mobile-menu-btn primary">
-                            <i class="fas fa-ticket-alt"></i> ВАШ БИЛЕТ
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="hero">
+    <section class="breadcrumb-section">
         <div class="container">
-            <h1>Контакты</h1>
-            <p>Свяжитесь с нами для получения дополнительной информации</p>
+            <div class="breadcrumb-content">
+                <h1>Контакты</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+                        <li class="breadcrumb-item"><a href="o-kompanii.html">О компании</a></li>
+                        <li class="breadcrumb-item active">Контакты</li>
+                    </ol>
+                </nav>
+            </div>
         </div>
     </section>
 
@@ -1123,7 +296,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3><a href="about/" style="color: white; text-decoration: none;">О нашей компании</a></h3>
+                    <h3><a href="o-kompanii.html" style="color: white; text-decoration: none;">О нашей компании</a></h3>
                     
                     <div class="footer-contact-info">
                         <div class="footer-contact-item">
@@ -1150,7 +323,7 @@
                     <h3>Основные разделы</h3>
                     <ul class="footer-links">
                         <li><a href="https://mupatp1.ru/raspisanie/">Расписание</a></li>
-                        <li><a href="stoimost-proezda.html">Оплата проезда</a></li>
+                        <li><a href="oplata-proezda.html">Оплата проезда</a></li>
                         <li><a href="uslugi.html">Услуги</a></li>
                         <li><a href="novosti.html">Новости</a></li>
                     </ul>
@@ -1160,9 +333,9 @@
                     <h3>Полезные ссылки</h3>
                     <ul class="footer-links">
                         <li><a href="https://citybus35.ru/" target="_blank">Умный транспорт</a></li>
-                        <li><a href="work">Работа у нас</a></li>
-                        <li><a href="" target="_blank">Учебный центр</a></li>
-                        <li><a href="dokumentyi">Документы</a></li>
+                        <li><a href="rabota.html">Работа у нас</a></li>
+                        <li><a href="https://yc.mupatp1.ru/" target="_blank">Учебный центр</a></li>
+                        <li><a href="dokumenty.html">Документы</a></li>
                     </ul>
                 </div>
             </div>
@@ -1178,77 +351,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const navbarToggler = document.getElementById('navbarToggler');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-        
-        navbarToggler.addEventListener('click', function() {
-            const isActive = this.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            mobileMenuOverlay.classList.toggle('active');
-            document.body.classList.toggle('mobile-menu-open', isActive);
-        });
-        
-        mobileMenuOverlay.addEventListener('click', function() {
-            navbarToggler.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            this.classList.remove('active');
-            document.body.classList.remove('mobile-menu-open');
-        });
-        
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (this.getAttribute('target') === '_blank') {
-                    return;
-                }
-                
-                navbarToggler.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                mobileMenuOverlay.classList.remove('active');
-                document.body.classList.remove('mobile-menu-open');
-            });
-        });
-        
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                navbarToggler.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                mobileMenuOverlay.classList.remove('active');
-                document.body.classList.remove('mobile-menu-open');
-            }
-        });
-        
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 992 && mobileMenu.classList.contains('active')) {
-                navbarToggler.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                mobileMenuOverlay.classList.remove('active');
-                document.body.classList.remove('mobile-menu-open');
-            }
-        });
-
-        const scrollButton = document.getElementById('toTop');
-        
-        function toggleScrollButton() {
-            if (window.scrollY > 300) {
-                scrollButton.classList.add('show');
-            } else {
-                scrollButton.classList.remove('show');
-            }
-        }
-        
-        toggleScrollButton();
-        
-        window.addEventListener('scroll', toggleScrollButton);
-        
-        scrollButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
+    <script src="scripts/kontakty.js"></script>
 </body>
 </html>
