@@ -30,7 +30,7 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto; 
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
 .logo img {
@@ -69,7 +69,7 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 8px;
+    gap: 5px;
     justify-content: center;
 }
 
@@ -81,23 +81,21 @@ body {
     display: flex;
     align-items: center;
     gap: 5px;
-    padding: 12px 20px;
+    padding: 10px 18px;
     color: #333333;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
     white-space: nowrap;
-    font-size: 16px;
-    border-radius: 8px;
+    font-size: 14px;
 }
 
 .main-menu nav ul li a:hover {
     color: #3a6ce6;
-    background-color: #f8f9fa;
 }
 
 .main-menu nav ul li a.menu-icon i {
-    font-size: 14px;
+    font-size: 12px;
     transition: transform 0.3s ease;
 }
 
@@ -110,7 +108,7 @@ body {
     top: 100%;
     left: 0;
     background: white;
-    min-width: 240px;
+    min-width: 220px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border-top: 2px solid #3a6ce6;
     opacity: 0;
@@ -123,7 +121,6 @@ body {
     padding: 0;
     margin: 0;
     list-style: none;
-    border-radius: 8px;
 }
 
 .main-menu nav ul li:hover .submenu-mainmenu {
@@ -138,11 +135,11 @@ body {
 
 .submenu-mainmenu li a {
     display: block;
-    padding: 12px 18px;
+    padding: 10px 15px;
     border-bottom: 1px solid #f0f0f0;
     color: #555555;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 13px;
     transition: all 0.3s ease;
 }
 
@@ -161,14 +158,14 @@ body {
     gap: 8px;
     background-color: #4a7cff;
     color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 8px 15px;
+    border-radius: 5px;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
     border: none;
     white-space: nowrap;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
 }
 
@@ -182,29 +179,28 @@ body {
 .navbar-toggler {
     border: none;
     background: transparent;
-    padding: 8px;
-    width: 48px;
-    height: 48px;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    border-radius: 8px;
 }
 
 .navbar-toggler span {
     display: block;
-    width: 28px;
+    width: 25px;
     height: 3px;
     background-color: #4a7cff;
-    margin: 4px 0;
+    margin: 3px 0;
     transition: all 0.3s ease;
     border-radius: 2px;
 }
 
 .navbar-toggler.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+    transform: rotate(45deg) translate(6px, 6px);
 }
 
 .navbar-toggler.active span:nth-child(2) {
@@ -212,7 +208,7 @@ body {
 }
 
 .navbar-toggler.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(8px, -8px);
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 .mobile-menu {
@@ -234,20 +230,20 @@ body {
 }
 
 .mobile-menu-container {
-    padding: 25px;
+    padding: 20px;
     max-width: 100%;
 }
 
 .mobile-menu-section {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .mobile-menu-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: #3a6ce6;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
     border-bottom: 2px solid #3a6ce6;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -260,21 +256,20 @@ body {
 }
 
 .mobile-menu-links li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .mobile-menu-links a {
     display: flex;
     align-items: center;
-    padding: 15px 18px;
+    padding: 12px 15px;
     background: #f8f9fa;
-    border-radius: 10px;
+    border-radius: 8px;
     text-decoration: none;
     color: #333;
     font-weight: 500;
     transition: all 0.3s ease;
-    border-left: 4px solid transparent;
-    font-size: 16px;
+    border-left: 3px solid transparent;
 }
 
 .mobile-menu-links a:hover {
@@ -284,17 +279,16 @@ body {
 }
 
 .mobile-menu-links a i {
-    width: 24px;
-    margin-right: 15px;
+    width: 20px;
+    margin-right: 12px;
     text-align: center;
     color: #3a6ce6;
-    font-size: 18px;
 }
 
 .mobile-menu-links a.external-link::after {
     content: "↗";
     margin-left: auto;
-    font-size: 16px;
+    font-size: 14px;
     color: #666;
 }
 
@@ -343,14 +337,14 @@ body.mobile-menu-open {
     display: inline-block;
     background-color: #3a6ce6;
     color: white;
-    padding: 14px 35px;
+    padding: 12px 30px;
     border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .btn:hover {
@@ -609,18 +603,18 @@ body.mobile-menu-open {
 }
 
 .map-control-btn {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     background: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 20px;
+    font-size: 18px;
     color: #333;
 }
 
@@ -637,15 +631,15 @@ body.mobile-menu-open {
 .map-notice {
     text-align: center;
     margin-top: 15px;
-    padding: 12px;
+    padding: 10px;
     background: #e3f2fd;
-    border-radius: 8px;
+    border-radius: 5px;
     color: #1565c0;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .map-notice i {
-    margin-right: 10px;
+    margin-right: 8px;
 }
 
 #ymap {
@@ -678,8 +672,8 @@ body.mobile-menu-open {
 .map-notification {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 10px;
-    padding: 18px 22px;
-    margin-bottom: 12px;
+    padding: 15px 20px;
+    margin-bottom: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     border-left: 4px solid #3a6ce6;
     transform: translateY(-20px) scale(0.9);
@@ -697,15 +691,15 @@ body.mobile-menu-open {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    font-size: 16px;
+    gap: 10px;
+    font-size: 14px;
     color: #333;
     font-weight: 500;
 }
 
 .map-notification-content i {
     color: #3a6ce6;
-    font-size: 18px;
+    font-size: 16px;
     flex-shrink: 0;
 }
 
@@ -713,11 +707,11 @@ body.mobile-menu-open {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 56px;
-    height: 56px;
+    width: 50px;
+    height: 50px;
     background-color: #000000;
     color: white;
-    border-radius: 28px;
+    border-radius: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -727,7 +721,6 @@ body.mobile-menu-open {
     transition: all 0.3s ease;
     z-index: 9999;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    font-size: 20px;
 }
 
 #toTop.show {
@@ -744,11 +737,11 @@ body.mobile-menu-open {
     position: fixed;
     bottom: 30px;
     left: 30px;
-    width: 56px;
-    height: 56px;
+    width: 50px;
+    height: 50px;
     background-color: #3a6ce6;
     color: white;
-    border-radius: 28px;
+    border-radius: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -758,7 +751,6 @@ body.mobile-menu-open {
     transition: all 0.3s ease;
     z-index: 9998;
     box-shadow: 0 4px 10px rgba(58, 108, 230, 0.3);
-    font-size: 20px;
 }
 
 #workButton.show {
@@ -837,16 +829,14 @@ footer {
 .footer-contact-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 18px;
+    gap: 10px;
+    margin-bottom: 15px;
     color: #bbbbbb;
-    font-size: 16px;
 }
 
 .footer-contact-item i {
     color: white;
-    width: 24px;
-    font-size: 18px;
+    width: 20px;
 }
 
 .footer-contact-item a {
@@ -891,14 +881,13 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     background-color: #333333;
     color: white;
-    border-radius: 22px;
+    border-radius: 20px;
     text-decoration: none;
     transition: all 0.3s ease;
-    font-size: 18px;
 }
 
 .social-links a:hover {
@@ -912,14 +901,13 @@ footer {
 }
 
 .footer-links li {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .footer-links a {
     color: #bbbbbb;
     text-decoration: none;
     transition: color 0.3s ease;
-    font-size: 16px;
 }
 
 .footer-links a:hover {
@@ -931,7 +919,7 @@ footer {
     padding-top: 20px;
     border-top: 1px solid #444444;
     color: #bbbbbb;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .job-popup-overlay {
@@ -958,7 +946,7 @@ footer {
 .job-popup {
     background: white;
     border-radius: 15px;
-    padding: 35px;
+    padding: 30px;
     max-width: 500px;
     width: 90%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -973,7 +961,7 @@ footer {
 
 .job-popup-icon {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .job-popup-icon i {
@@ -993,7 +981,6 @@ footer {
     margin-bottom: 25px;
     color: #666;
     line-height: 1.6;
-    font-size: 16px;
 }
 
 .job-popup-buttons {
@@ -1003,7 +990,7 @@ footer {
 }
 
 .job-popup-btn {
-    padding: 14px 28px;
+    padding: 12px 25px;
     border-radius: 25px;
     text-decoration: none;
     font-weight: 500;
@@ -1035,23 +1022,14 @@ footer {
 
 @media (max-width: 1200px) {
     .main-menu nav ul li a {
-        padding: 12px 18px;
-        font-size: 15px;
-    }
-    
-    .header-container {
-        padding: 0 25px;
+        padding: 10px 15px;
+        font-size: 13px;
     }
 }
 
 @media (max-width: 992px) {
-    body {
-        padding-top: 75px;
-    }
-    
     .header-container {
         flex-wrap: nowrap;
-        padding: 0 20px;
     }
     
     .header-center {
@@ -1063,8 +1041,8 @@ footer {
     }
     
     .header-btn {
-        padding: 10px 16px;
-        font-size: 15px;
+        padding: 8px 12px;
+        font-size: 13px;
     }
 
     .footer-content {
@@ -1075,33 +1053,15 @@ footer {
         flex: 0 1 280px;
         max-width: 280px;
     }
-    
-    .main-menu nav ul {
-        gap: 5px;
-    }
-    
-    .main-menu nav ul li a {
-        padding: 10px 15px;
-        font-size: 14px;
-    }
 }
 
 @media (max-width: 768px) {
     body {
-        padding-top: 70px;
-        font-size: 16px;
-    }
-    
-    .header-container {
-        padding: 0 15px;
-    }
-    
-    .logo img {
-        height: 50px;
+        padding-top: 70px; 
     }
     
     .hero {
-        padding: 100px 20px;
+        padding: 120px 20px;
     }
     
     .hero h1 {
@@ -1112,28 +1072,19 @@ footer {
         font-size: 18px;
     }
     
-    .btn {
-        padding: 12px 28px;
-        font-size: 16px;
-    }
-    
     .stats {
-        gap: 20px;
+        gap: 15px;
         margin: 40px 0;
     }
     
     .stat-item {
-        min-width: 160px;
-        padding: 25px 15px;
-        flex: 0 0 calc(50% - 10px);
+        min-width: 150px;
+        padding: 20px 15px;
+        flex: 0 0 calc(50% - 15px);
     }
     
     .stat-number {
-        font-size: 36px;
-    }
-    
-    .stat-text {
-        font-size: 16px;
+        font-size: 40px;
     }
     
     .stat-content {
@@ -1148,17 +1099,15 @@ footer {
     #toTop {
         bottom: 20px;
         right: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 18px;
+        width: 45px;
+        height: 45px;
     }
     
     #workButton {
         bottom: 20px;
         left: 20px;
-        width: 50px;
-        height: 50px;
-        font-size: 18px;
+        width: 45px;
+        height: 45px;
     }
     
     .map-container {
@@ -1170,47 +1119,39 @@ footer {
         right: 10px;
     }
 
-    .map-control-btn {
-        width: 42px;
-        height: 42px;
-        font-size: 18px;
-    }
-    
     .map-notifications {
         width: 90%;
-        max-width: 350px;
+        max-width: 300px;
     }
     
     .map-notification {
-        padding: 15px 18px;
+        padding: 12px 15px;
     }
     
     .map-notification-content {
-        font-size: 15px;
+        font-size: 13px;
     }
     
     .footer-content {
         flex-direction: column;
         align-items: center;
-        gap: 35px;
     }
     
     .footer-column {
         flex: 1;
-        max-width: 100%;
-        text-align: center;
+        max-width: 400px;
+        width: 100%;
     }
     
     .footer-bottom-content {
         flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        text-align: center;
+        align-items: flex-start;
+        gap: 15px;
     }
     
     .footer-image-container {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
     }
     
     .section {
@@ -1222,7 +1163,7 @@ footer {
     }
     
     .section-title h2 {
-        font-size: 28px;
+        font-size: 29px;
     }
 
     .mobile-menu {
@@ -1235,50 +1176,22 @@ footer {
     }
     
     .mobile-menu-container {
-        padding: 20px;
+        padding: 15px;
     }
     
     .mobile-menu-title {
-        font-size: 17px;
+        font-size: 15px;
     }
     
     .mobile-menu-links a {
-        padding: 14px 16px;
-        font-size: 16px;
-    }
-    
-    .mobile-menu-links a i {
-        font-size: 18px;
-        width: 24px;
-    }
-    
-    .navbar-toggler {
-        width: 44px;
-        height: 44px;
-    }
-    
-    .header-btn {
-        padding: 9px 14px;
+        padding: 10px 12px;
         font-size: 14px;
     }
 }
 
 @media (max-width: 576px) {
-    body {
-        padding-top: 65px;
-        font-size: 15px;
-    }
-    
-    .header-container {
-        padding: 0 15px;
-    }
-    
-    .logo img {
-        height: 45px;
-    }
-    
     .hero h1 {
-        font-size: 28px;
+        font-size: 29px;
     }
     
     .hero p {
@@ -1292,17 +1205,15 @@ footer {
     #toTop {
         bottom: 15px;
         right: 15px;
-        width: 46px;
-        height: 46px;
-        font-size: 16px;
+        width: 40px;
+        height: 40px;
     }
     
     #workButton {
         bottom: 15px;
         left: 15px;
-        width: 46px;
-        height: 46px;
-        font-size: 16px;
+        width: 40px;
+        height: 40px;
     }
     
     .stats {
@@ -1313,11 +1224,6 @@ footer {
     .stat-item {
         flex: 1;
         min-width: 100%;
-        padding: 20px 15px;
-    }
-    
-    .stat-number {
-        font-size: 32px;
     }
     
     .news-grid {
@@ -1333,64 +1239,12 @@ footer {
         max-width: 100%;
     }
 
-    .btn {
-        padding: 12px 25px;
-        font-size: 15px;
-    }
-    
-    .header-btn {
-        padding: 8px 12px;
-        font-size: 14px;
-    }
-    
-    .mobile-menu-container {
-        padding: 15px;
-    }
-    
-    .mobile-menu-links a {
-        padding: 12px 14px;
-        font-size: 15px;
-    }
-    
-    .navbar-toggler {
-        width: 42px;
-        height: 42px;
-    }
-    
-    .navbar-toggler span {
-        width: 25px;
-        height: 3px;
-    }
-}
-
-@media (max-width: 400px) {
-    .hero h1 {
-        font-size: 24px;
-    }
-    
-    .hero p {
-        font-size: 15px;
-    }
-    
-    .section-title h2 {
-        font-size: 22px;
+    .logo img {
+        height: 50px;
     }
     
     .btn {
-        padding: 10px 22px;
-        font-size: 14px;
-    }
-    
-    .header-btn {
-        padding: 7px 10px;
-        font-size: 13px;
-    }
-    
-    .stat-number {
-        font-size: 28px;
-    }
-    
-    .stat-text {
+        padding: 10px 25px;
         font-size: 14px;
     }
 }
