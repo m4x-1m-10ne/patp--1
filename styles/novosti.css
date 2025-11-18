@@ -291,13 +291,6 @@ body {
     color: var(--primary-color);
 }
 
-.mobile-menu-links a.external-link::after {
-    content: "↗";
-    margin-left: auto;
-    font-size: 14px;
-    color: #666;
-}
-
 .mobile-menu-overlay {
     display: none;
     position: fixed;
@@ -313,12 +306,8 @@ body {
     display: block;
 }
 
-body.mobile-menu-open {
-    overflow: hidden;
-}
-
 .breadcrumb-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/novosti.jpg'),#00000000;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/novosti.jpg');
     color: white;
     padding: 60px 0 40px;
     margin-bottom: 40px;
@@ -348,18 +337,6 @@ body.mobile-menu-open {
 
 .breadcrumb-item + .breadcrumb-item::before {
     color: rgba(255, 255, 255, 0.6);
-}
-
-.breadcrumb-image {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 150px;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.3;
-    z-index: 0;
 }
 
 .breadcrumb-content {
@@ -494,18 +471,6 @@ body.mobile-menu-open {
     background-color: #9e9e9e;
     transform: none;
     box-shadow: none;
-}
-
-.news-img {
-    background-image: none !important;
-}
-
-.news-card:first-child .news-img {
-    background-color: var(--primary-color) !important;
-}
-
-.news-card.inactive .news-img {
-    background-color: #cccccc !important;
 }
 
 .pagination {
@@ -710,13 +675,6 @@ footer {
     transform: translateY(-3px);
 }
 
-@media (max-width: 1200px) {
-    .main-menu nav ul li a {
-        padding: 10px 15px;
-        font-size: 13px;
-    }
-}
-
 @media (max-width: 992px) {
     .header-container {
         flex-wrap: nowrap;
@@ -750,16 +708,12 @@ footer {
         padding-top: 70px; 
     }
     
-    .hero {
-        padding: 100px 20px 60px;
+    .breadcrumb-section {
+        padding: 40px 0 30px;
     }
     
-    .hero h1 {
+    .breadcrumb-section h1 {
         font-size: 28px;
-    }
-    
-    .hero p {
-        font-size: 16px;
     }
     
     .section {
@@ -811,32 +765,11 @@ footer {
     .mobile-menu-overlay {
         top: 70px;
     }
-    
-    .mobile-menu-container {
-        padding: 15px;
-    }
-    
-    .mobile-menu-title {
-        font-size: 15px;
-    }
-    
-    .mobile-menu-links a {
-        padding: 10px 12px;
-        font-size: 14px;
-    }
 }
 
 @media (max-width: 576px) {
-    .hero {
-        padding: 80px 20px 40px;
-    }
-    
-    .hero h1 {
+    .breadcrumb-section h1 {
         font-size: 24px;
-    }
-    
-    .hero p {
-        font-size: 14px;
     }
     
     .section-title h2 {
@@ -861,9 +794,8 @@ footer {
     .logo img {
         height: 50px;
     }
-    
-    .btn {
-        padding: 10px 25px;
-        font-size: 14px;
+
+    .mobile-menu-container {
+        padding: 15px;
     }
 }
