@@ -493,6 +493,7 @@ body.mobile-menu-open {
     font-size: 13px;
     margin-top: auto;
     flex-shrink: 0;
+    justify-content: center;
 }
 
 .document-btn:hover {
@@ -890,3 +891,4 @@ footer {
         padding: 20px;
     }
 }
+
