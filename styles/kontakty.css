@@ -292,13 +292,6 @@ body {
     color: var(--primary-color);
 }
 
-.mobile-menu-links a.external-link::after {
-    content: "↗";
-    margin-left: auto;
-    font-size: 14px;
-    color: #666;
-}
-
 .mobile-menu-overlay {
     display: none;
     position: fixed;
@@ -312,10 +305,6 @@ body {
 
 .mobile-menu-overlay.active {
     display: block;
-}
-
-body.mobile-menu-open {
-    overflow: hidden;
 }
 
 .breadcrumb-section {
@@ -348,32 +337,6 @@ body.mobile-menu-open {
 
 .breadcrumb-item + .breadcrumb-item::before {
     color: rgba(255, 255, 255, 0.6);
-}
-
-.breadcrumb-content {
-    position: relative;
-    z-index: 1;
-}
-
-.btn {
-    display: inline-block;
-    background-color: #3a6ce6;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.btn:hover {
-    background-color: #2a5cd6;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    color: white;
 }
 
 .section {
@@ -708,16 +671,12 @@ footer {
         padding-top: 70px; 
     }
     
-    .hero {
-        padding: 100px 20px 60px;
+    .breadcrumb-section {
+        padding: 40px 0 30px;
     }
     
-    .hero h1 {
+    .breadcrumb-section h1 {
         font-size: 28px;
-    }
-    
-    .hero p {
-        font-size: 16px;
     }
     
     .section {
@@ -777,16 +736,8 @@ footer {
 }
 
 @media (max-width: 576px) {
-    .hero {
-        padding: 80px 20px 40px;
-    }
-    
-    .hero h1 {
+    .breadcrumb-section h1 {
         font-size: 24px;
-    }
-    
-    .hero p {
-        font-size: 14px;
     }
     
     .section-title h2 {
