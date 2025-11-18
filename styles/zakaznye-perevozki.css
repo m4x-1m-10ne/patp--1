@@ -3,8 +3,11 @@
     --secondary-color: #4a7cff;
     --text-color: #333333;
     --light-bg: #f8f9fa;
-    --error-color: #dc3545;
-    --success-color: #28a745;
+}
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 body {
@@ -16,6 +19,7 @@ body {
 }
 
 .header-area {
+    max-width: 100%;
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 15px 0;
@@ -30,13 +34,41 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; 
     padding: 0 15px;
 }
 
 .logo img {
     height: 60px;
+    max-width: 100%;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 0 0 auto;
+}
+
+.header-center {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 15px;
+}
+
+.main-menu {
+    display: flex;
+    align-items: center;
 }
 
 .main-menu nav ul {
@@ -45,6 +77,7 @@ body {
     margin: 0;
     display: flex;
     gap: 5px;
+    justify-content: center;
 }
 
 .main-menu nav ul li {
@@ -60,11 +93,21 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
+    white-space: nowrap;
     font-size: 14px;
 }
 
 .main-menu nav ul li a:hover {
     color: var(--primary-color);
+}
+
+.main-menu nav ul li a.menu-icon i {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.main-menu nav ul li:hover > a.menu-icon i {
+    transform: rotate(180deg);
 }
 
 .submenu-mainmenu {
@@ -80,6 +123,8 @@ body {
     transform: translateY(10px);
     transition: all 0.3s ease;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -89,6 +134,10 @@ body {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+}
+
+.submenu-mainmenu li {
+    width: 100%;
 }
 
 .submenu-mainmenu li a {
@@ -121,12 +170,17 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;
+    border: none;
+    white-space: nowrap;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .header-btn:hover {
     background-color: var(--primary-color);
     color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(58, 108, 230, 0.3);
 }
 
 .navbar-toggler {
@@ -152,6 +206,18 @@ body {
     border-radius: 2px;
 }
 
+.navbar-toggler.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.navbar-toggler.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
 .mobile-menu {
     display: none;
     position: fixed;
@@ -172,6 +238,7 @@ body {
 
 .mobile-menu-container {
     padding: 20px;
+    max-width: 100%;
 }
 
 .mobile-menu-section {
@@ -215,6 +282,7 @@ body {
 .mobile-menu-links a:hover {
     background: #e9ecef;
     border-left-color: var(--primary-color);
+    transform: translateX(5px);
 }
 
 .mobile-menu-links a i {
@@ -222,6 +290,13 @@ body {
     margin-right: 12px;
     text-align: center;
     color: var(--primary-color);
+}
+
+.mobile-menu-links a.external-link::after {
+    content: "↗";
+    margin-left: auto;
+    font-size: 14px;
+    color: #666;
 }
 
 .mobile-menu-overlay {
@@ -237,6 +312,10 @@ body {
 
 .mobile-menu-overlay.active {
     display: block;
+}
+
+body.mobile-menu-open {
+    overflow: hidden;
 }
 
 .breadcrumb-section {
@@ -773,7 +852,7 @@ footer {
     max-width: 500px;
     width: 90%;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    border: 2px solid var(--error-color);
+    border: 2px solid #dc3545;
     position: relative;
 }
 
@@ -789,7 +868,7 @@ footer {
 .validation-modal-icon {
     width: 50px;
     height: 50px;
-    background: var(--error-color);
+    background: #dc3545;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -805,7 +884,7 @@ footer {
 .validation-modal-title {
     font-size: 24px;
     font-weight: 600;
-    color: var(--error-color);
+    color: #dc3545;
     margin: 0;
 }
 
@@ -839,7 +918,7 @@ footer {
 }
 
 .validation-list i {
-    color: var(--error-color);
+    color: #dc3545;
     margin-top: 2px;
     flex-shrink: 0;
 }
@@ -861,7 +940,7 @@ footer {
 }
 
 .validation-modal-btn-close {
-    background: var(--error-color);
+    background: #dc3545;
     color: white;
 }
 
@@ -873,7 +952,7 @@ footer {
     position: absolute;
     top: -10px;
     right: -10px;
-    background: var(--error-color);
+    background: #dc3545;
     color: white;
     border-radius: 50%;
     width: 24px;
@@ -886,6 +965,10 @@ footer {
 }
 
 @media (max-width: 992px) {
+    .header-container {
+        flex-wrap: nowrap;
+    }
+    
     .header-center {
         display: none;
     }
@@ -934,7 +1017,7 @@ footer {
 
 @media (max-width: 768px) {
     body {
-        padding-top: 70px;
+        padding-top: 70px; 
     }
     
     .breadcrumb-section {
@@ -1098,4 +1181,3 @@ footer {
         font-size: 15px;
     }
 }
-
