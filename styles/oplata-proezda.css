@@ -292,32 +292,6 @@ body {
     color: var(--primary-color);
 }
 
-.mobile-menu-links a.external-link::after {
-    content: "↗";
-    margin-left: auto;
-    font-size: 14px;
-    color: #666;
-}
-
-.mobile-menu-overlay {
-    display: none;
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 998;
-}
-
-.mobile-menu-overlay.active {
-    display: block;
-}
-
-body.mobile-menu-open {
-    overflow: hidden;
-}
-
 .breadcrumb-section {
     background: linear-gradient(135deg, #3a6ce6 0%, #4a7cff 100%);
     color: white;
@@ -624,10 +598,6 @@ body.mobile-menu-open {
     text-decoration: underline;
 }
 
-.map-link i {
-    font-size: 12px;
-}
-
 .phone-link {
     color: #333;
     text-decoration: none;
@@ -649,10 +619,6 @@ body.mobile-menu-open {
     font-size: 12px;
     font-weight: 600;
     margin-top: 5px;
-}
-
-.hours-badge i {
-    font-size: 10px;
 }
 
 .card-actions {
@@ -1060,12 +1026,6 @@ footer {
     font-size: 14px;
 }
 
-@media (max-width: 1200px) {
-    .locations-container {
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    }
-}
-
 @media (max-width: 992px) {
     .header-container {
         flex-wrap: nowrap;
@@ -1218,28 +1178,6 @@ footer {
 
     .logo img {
         height: 50px;
-    }
-
-    .mobile-menu {
-        top: 70px;
-        max-height: calc(100vh - 70px);
-    }
-    
-    .mobile-menu-overlay {
-        top: 70px;
-    }
-    
-    .mobile-menu-container {
-        padding: 15px;
-    }
-    
-    .mobile-menu-title {
-        font-size: 15px;
-    }
-    
-    .mobile-menu-links a {
-        padding: 10px 12px;
-        font-size: 14px;
     }
 
     .mobile-location-card {
