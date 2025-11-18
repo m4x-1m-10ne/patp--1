@@ -120,7 +120,7 @@ body {
     border-top: 2px solid var(--primary-color);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(10px);
+    transform: translateY(-10px);
     transition: all 0.3s ease;
     z-index: 1000;
     display: flex;
@@ -1256,3 +1256,4 @@ footer {
         gap: 10px;
     }
 }
+
