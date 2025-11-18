@@ -240,7 +240,7 @@ body {
 }
 
 .breadcrumb-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), #00000000;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/zakaznye-perevozki.jpg'),#00000000;
     color: white;
     padding: 60px 0 40px;
     margin-bottom: 40px;
@@ -1098,3 +1098,4 @@ footer {
         font-size: 15px;
     }
 }
+
