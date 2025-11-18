@@ -292,13 +292,6 @@ body {
     color: var(--primary-color);
 }
 
-.mobile-menu-links a.external-link::after {
-    content: "↗";
-    margin-left: auto;
-    font-size: 14px;
-    color: #666;
-}
-
 .mobile-menu-overlay {
     display: none;
     position: fixed;
@@ -312,10 +305,6 @@ body {
 
 .mobile-menu-overlay.active {
     display: block;
-}
-
-body.mobile-menu-open {
-    overflow: hidden;
 }
 
 .breadcrumb-section {
