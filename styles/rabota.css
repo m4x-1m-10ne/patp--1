@@ -159,10 +159,6 @@ body {
     color: var(--primary-color);
 }
 
-.header-btn-dropdown {
-    position: relative;
-}
-
 .header-btn {
     display: flex;
     align-items: center;
@@ -185,75 +181,6 @@ body {
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(58, 108, 230, 0.3);
-}
-
-.header-btn i.fa-angle-down {
-    font-size: 12px;
-    transition: transform 0.3s ease;
-}
-
-.header-btn-dropdown:hover .header-btn i.fa-angle-down {
-    transform: rotate(180deg);
-}
-
-.vash-bilet-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: white;
-    min-width: 200px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-top: 2px solid var(--primary-color);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    border-radius: 0 0 5px 5px;
-    overflow: hidden;
-}
-
-.header-btn-dropdown:hover .vash-bilet-dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.vash-bilet-dropdown li {
-    width: 100%;
-}
-
-.vash-bilet-dropdown li a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 15px;
-    border-bottom: 1px solid #f0f0f0;
-    color: #555555;
-    text-decoration: none;
-    font-size: 13px;
-    transition: all 0.3s ease;
-}
-
-.vash-bilet-dropdown li:last-child a {
-    border-bottom: none;
-}
-
-.vash-bilet-dropdown li a:hover {
-    background-color: var(--light-bg);
-    color: var(--primary-color);
-    padding-left: 20px;
-}
-
-.vash-bilet-dropdown li a i {
-    width: 16px;
-    text-align: center;
-    color: var(--primary-color);
 }
 
 .navbar-toggler {
@@ -422,18 +349,6 @@ body.mobile-menu-open {
 
 .breadcrumb-item + .breadcrumb-item::before {
     color: rgba(255, 255, 255, 0.6);
-}
-
-.breadcrumb-image {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 150px;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.3;
-    z-index: 0;
 }
 
 .breadcrumb-content {
@@ -820,16 +735,6 @@ body.mobile-menu-open {
     margin: 0 auto 30px;
 }
 
-.btn-white {
-    background-color: white;
-    color: var(--primary-color);
-}
-
-.btn-white:hover {
-    background-color: #f8f9fa;
-    color: var(--primary-color);
-}
-
 footer {
     background-color: #222222;
     color: white;
@@ -1159,18 +1064,5 @@ footer {
         width: 100%;
         padding: 10px 20px;
         font-size: 14px;
-    }
-}
-
-@media (max-width: 400px) {
-    .vacancies-grid,
-    .advantages-grid,
-    .reviews-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero .btn {
-        width: 100%;
-        max-width: 280px;
     }
 }
