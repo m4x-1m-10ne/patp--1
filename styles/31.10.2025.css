@@ -5,11 +5,6 @@
     --light-bg: #f8f9fa;
 }
 
-html, body {
-    overflow-x: hidden;
-    max-width: 100%;
-}
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--light-bg);
@@ -313,12 +308,8 @@ body {
     display: block;
 }
 
-body.mobile-menu-open {
-    overflow: hidden;
-}
-
 .breadcrumb-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(''),#00000000;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), #00000000;
     color: white;
     padding: 60px 0 40px;
     margin-bottom: 40px;
@@ -350,77 +341,13 @@ body.mobile-menu-open {
     color: rgba(255, 255, 255, 0.6);
 }
 
-.breadcrumb-image {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 150px;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.3;
-    z-index: 0;
-}
-
 .breadcrumb-content {
     position: relative;
     z-index: 1;
 }
 
-.btn {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 12px 30px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.btn:hover {
-    background-color: #2a5cd6;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    color: white;
-}
-
 .section {
     padding: 60px 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-title h2 {
-    font-size: 35px;
-    color: var(--text-color);
-    margin-bottom: 15px;
-    position: relative;
-    display: inline-block;
-}
-
-.section-title h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background-color: var(--primary-color);
-    border-radius: 2px;
-}
-
-.section-title p {
-    color: #666666;
-    max-width: 700px;
-    margin: 0 auto;
 }
 
 .news-detail {
@@ -529,29 +456,6 @@ body.mobile-menu-open {
 .share-btn.vk:hover {
     background-color: #3a6690;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(74, 118, 168, 0.3);
-}
-
-.share-btn.telegram {
-    background-color: #0088cc;
-    color: white;
-}
-
-.share-btn.telegram:hover {
-    background-color: #0077b3;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 136, 204, 0.3);
-}
-
-.share-btn.whatsapp {
-    background-color: #25D366;
-    color: white;
-}
-
-.share-btn.whatsapp:hover {
-    background-color: #1da851;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
 }
 
 .share-btn.odnoklassniki {
@@ -562,7 +466,6 @@ body.mobile-menu-open {
 .share-btn.odnoklassniki:hover {
     background-color: #d67307;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(238, 130, 8, 0.3);
 }
 
 .share-btn.copy {
@@ -573,7 +476,6 @@ body.mobile-menu-open {
 .share-btn.copy:hover {
     background-color: #2a5cd6;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(58, 108, 230, 0.3);
 }
 
 .copy-notification {
@@ -736,7 +638,6 @@ footer {
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 9999;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 #toTop.show {
@@ -749,18 +650,7 @@ footer {
     transform: translateY(-3px);
 }
 
-@media (max-width: 1200px) {
-    .main-menu nav ul li a {
-        padding: 10px 15px;
-        font-size: 13px;
-    }
-}
-
 @media (max-width: 992px) {
-    .header-container {
-        flex-wrap: nowrap;
-    }
-    
     .header-center {
         display: none;
     }
@@ -768,58 +658,17 @@ footer {
     .navbar-toggler {
         display: flex;
     }
-    
-    .header-btn {
-        padding: 8px 12px;
-        font-size: 13px;
-    }
-
-    .footer-content {
-        gap: 30px;
-    }
-    
-    .footer-column {
-        flex: 0 1 280px;
-        max-width: 280px;
-    }
 }
 
 @media (max-width: 768px) {
     body {
-        padding-top: 70px; 
-    }
-    
-    .hero {
-        padding: 100px 20px 60px;
-    }
-    
-    .hero h1 {
-        font-size: 28px;
-    }
-    
-    .hero p {
-        font-size: 16px;
+        padding-top: 70px;
     }
     
     .section {
         padding: 40px 0;
     }
     
-    .section-title {
-        margin-bottom: 30px;
-    }
-    
-    .section-title h2 {
-        font-size: 29px;
-    }
-    
-    #toTop {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-    }
-
     .footer-content {
         flex-direction: column;
         align-items: center;
@@ -831,17 +680,6 @@ footer {
         width: 100%;
     }
     
-    .footer-bottom-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-    
-    .footer-image-container {
-        width: 60px;
-        height: 60px;
-    }
-
     .mobile-menu {
         top: 70px;
         max-height: calc(100vh - 70px);
@@ -851,19 +689,6 @@ footer {
         top: 70px;
     }
     
-    .mobile-menu-container {
-        padding: 15px;
-    }
-    
-    .mobile-menu-title {
-        font-size: 15px;
-    }
-    
-    .mobile-menu-links a {
-        padding: 10px 12px;
-        font-size: 14px;
-    }
-
     .news-detail {
         padding: 25px;
     }
@@ -871,58 +696,9 @@ footer {
     .news-content h3 {
         font-size: 24px;
     }
-
-    .share-buttons {
-        gap: 10px;
-    }
-    
-    .share-btn {
-        padding: 8px 15px;
-        font-size: 13px;
-    }
 }
 
 @media (max-width: 576px) {
-    .hero {
-        padding: 80px 20px 40px;
-    }
-    
-    .hero h1 {
-        font-size: 24px;
-    }
-    
-    .hero p {
-        font-size: 14px;
-    }
-    
-    .section-title h2 {
-        font-size: 26px;
-    }
-    
-    #toTop {
-        bottom: 15px;
-        right: 15px;
-        width: 40px;
-        height: 40px;
-    }
-    
-    .footer-content {
-        gap: 30px;
-    }
-    
-    .footer-column {
-        max-width: 100%;
-    }
-
-    .logo img {
-        height: 50px;
-    }
-    
-    .btn {
-        padding: 10px 25px;
-        font-size: 14px;
-    }
-
     .news-detail {
         padding: 20px;
     }
@@ -930,16 +706,12 @@ footer {
     .news-content h3 {
         font-size: 22px;
     }
-
+    
     .share-section {
         padding: 20px;
     }
     
-    .share-buttons {
-        flex-direction: column;
-    }
-    
-    .share-btn {
-        justify-content: center;
+    .logo img {
+        height: 50px;
     }
 }
