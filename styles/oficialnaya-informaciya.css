@@ -292,13 +292,6 @@ body {
     color: var(--primary-color);
 }
 
-.mobile-menu-links a.external-link::after {
-    content: "↗";
-    margin-left: auto;
-    font-size: 14px;
-    color: #666;
-}
-
 .mobile-menu-overlay {
     display: none;
     position: fixed;
@@ -312,10 +305,6 @@ body {
 
 .mobile-menu-overlay.active {
     display: block;
-}
-
-body.mobile-menu-open {
-    overflow: hidden;
 }
 
 .breadcrumb-section {
@@ -352,37 +341,6 @@ body.mobile-menu-open {
 
 .section {
     padding: 60px 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-title h2 {
-    font-size: 35px;
-    color: var(--text-color);
-    margin-bottom: 15px;
-    position: relative;
-    display: inline-block;
-}
-
-.section-title h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background-color: var(--primary-color);
-    border-radius: 2px;
-}
-
-.section-title p {
-    color: #666666;
-    max-width: 700px;
-    margin: 0 auto;
 }
 
 .documents-grid {
@@ -736,14 +694,6 @@ footer {
         padding: 40px 0;
     }
     
-    .section-title {
-        margin-bottom: 30px;
-    }
-    
-    .section-title h2 {
-        font-size: 29px;
-    }
-    
     .documents-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -795,10 +745,6 @@ footer {
 @media (max-width: 576px) {
     .breadcrumb-section h1 {
         font-size: 24px;
-    }
-    
-    .section-title h2 {
-        font-size: 26px;
     }
     
     #toTop {
