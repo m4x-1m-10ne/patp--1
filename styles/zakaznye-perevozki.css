@@ -120,7 +120,7 @@ body {
     border-top: 2px solid var(--primary-color);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(10px);
+    transform: translateX(10px);
     transition: all 0.3s ease;
     z-index: 1000;
     display: flex;
@@ -133,7 +133,7 @@ body {
 .main-menu nav ul li:hover .submenu-mainmenu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
 .submenu-mainmenu li {
@@ -1181,3 +1181,4 @@ footer {
         font-size: 15px;
     }
 }
+
