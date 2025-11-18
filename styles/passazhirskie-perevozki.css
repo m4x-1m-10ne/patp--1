@@ -18,6 +18,7 @@ body {
     padding-top: 80px;
 }
 
+/* Header Styles */
 .header-area {
     max-width: 100%;
     background-color: white;
@@ -318,6 +319,7 @@ body.mobile-menu-open {
     overflow: hidden;
 }
 
+/* Breadcrumb Section */
 .breadcrumb-section {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/passazhirskie-perevozki.jpg'),#00000000;
     color: white;
@@ -368,60 +370,9 @@ body.mobile-menu-open {
     z-index: 1;
 }
 
-.btn {
-    display: inline-block;
-    background-color: #3a6ce6;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.btn:hover {
-    background-color: #2a5cd6;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    color: white;
-}
-
+/* Content Section */
 .section {
     padding: 50px 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-title h2 {
-    font-size: 32px;
-    color: var(--text-color);
-    margin-bottom: 15px;
-    position: relative;
-    display: inline-block;
-}
-
-.section-title h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background-color: var(--primary-color);
-    border-radius: 2px;
-}
-
-.section-title p {
-    color: #666666;
-    max-width: 700px;
-    margin: 0 auto;
 }
 
 .content-section {
@@ -492,6 +443,7 @@ body.mobile-menu-open {
     color: var(--primary-color);
 }
 
+/* Footer */
 footer {
     background-color: #222222;
     color: white;
@@ -617,6 +569,7 @@ footer {
     font-size: 14px;
 }
 
+/* Back to Top Button */
 #toTop {
     position: fixed;
     bottom: 30px;
@@ -647,6 +600,7 @@ footer {
     transform: translateY(-3px);
 }
 
+/* Responsive Styles */
 @media (max-width: 992px) {
     .header-container {
         flex-wrap: nowrap;
@@ -680,28 +634,8 @@ footer {
         padding-top: 70px; 
     }
     
-    .hero {
-        padding: 80px 20px;
-    }
-    
-    .hero h1 {
-        font-size: 28px;
-    }
-    
-    .hero p {
-        font-size: 16px;
-    }
-    
     .section {
         padding: 35px 0;
-    }
-    
-    .section-title {
-        margin-bottom: 25px;
-    }
-    
-    .section-title h2 {
-        font-size: 26px;
     }
     
     .content-section {
@@ -745,24 +679,15 @@ footer {
     .mobile-menu-overlay {
         top: 70px;
     }
-
-    .advantages-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
 }
 
 @media (max-width: 576px) {
-    .hero h1 {
-        font-size: 24px;
+    .section {
+        padding: 25px 0;
     }
     
-    .hero p {
-        font-size: 14px;
-    }
-    
-    .section-title h2 {
-        font-size: 22px;
+    .content-section {
+        padding: 20px;
     }
     
     #toTop {
@@ -786,9 +711,5 @@ footer {
 
     .mobile-menu-container {
         padding: 15px;
-    }
-
-    .content-section {
-        padding: 20px;
     }
 }
