@@ -367,4 +367,216 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 3000);
         }
     }
+
 });
+
+function isTabletDevice() {
+    const width = window.innerWidth;
+    return width >= 768 && width <= 992;
+}
+
+function highlightElement(element) {
+    element.style.backgroundColor = '#f0f8ff';
+    element.style.borderRadius = '5px';
+    element.style.boxShadow = '0 0 0 2px #3a6ce6';
+    
+    setTimeout(() => {
+        element.style.backgroundColor = '';
+        element.style.boxShadow = '';
+    }, 500);
+}
+
+function initTabletMenuHandlers() {
+    const menuItems = document.querySelectorAll('.main-menu nav ul li a.menu-icon');
+    let clickTimer = null;
+    let currentItem = null;
+    
+    menuItems.forEach(item => {
+        const originalHref = item.getAttribute('href');
+        
+        item.addEventListener('click', function(e) {
+            if (!isTabletDevice()) {
+                return;
+            }
+            
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const parentLi = this.closest('li');
+            
+            if (currentItem === this && clickTimer) {
+                clearTimeout(clickTimer);
+                clickTimer = null;
+                currentItem = null;
+                
+                if (originalHref && originalHref !== '#') {
+                    window.location.href = originalHref;
+                }
+                return;
+            }
+            
+            highlightElement(this);
+            
+            const submenu = parentLi.querySelector('.submenu-mainmenu');
+            if (submenu) {
+                document.querySelectorAll('.submenu-mainmenu').forEach(sub => {
+                    if (sub !== submenu) {
+                        sub.style.opacity = '0';
+                        sub.style.visibility = 'hidden';
+                        sub.style.transform = 'translateY(10px)';
+                    }
+                });
+                
+                submenu.style.opacity = '1';
+                submenu.style.visibility = 'visible';
+                submenu.style.transform = 'translateY(0)';
+            }
+            
+            currentItem = this;
+            if (clickTimer) {
+                clearTimeout(clickTimer);
+            }
+            
+            clickTimer = setTimeout(() => {
+                clickTimer = null;
+                currentItem = null;
+            }, 1000);
+        });
+        
+        const submenuItems = parentLi.querySelectorAll('.submenu-mainmenu a');
+        submenuItems.forEach(subItem => {
+            subItem.addEventListener('click', function(e) {
+                if (isTabletDevice()) {
+                    highlightElement(this);
+                }
+            });
+        });
+    });
+    
+    document.addEventListener('click', function(e) {
+        if (!isTabletDevice()) return;
+        
+        if (!e.target.closest('.main-menu')) {
+            document.querySelectorAll('.submenu-mainmenu').forEach(submenu => {
+                submenu.style.opacity = '0';
+                submenu.style.visibility = 'hidden';
+                submenu.style.transform = 'translateY(10px)';
+            });
+            
+            if (clickTimer) {
+                clearTimeout(clickTimer);
+                clickTimer = null;
+                currentItem = null;
+            }
+        }
+    });
+}
+
+function initMobileMenuTabletHandlers() {
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
+    let mobileClickTimer = null;
+    let currentMobileItem = null;
+    
+    mobileMenuLinks.forEach(item => {
+        const originalHref = item.getAttribute('href');
+        
+        item.addEventListener('click', function(e) {
+            if (!isTabletDevice()) return;
+            
+            if (this.classList.contains('external-link') || 
+                this.getAttribute('target') === '_blank') {
+                return;
+            }
+            
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (currentMobileItem === this && mobileClickTimer) {
+                clearTimeout(mobileClickTimer);
+                mobileClickTimer = null;
+                currentMobileItem = null;
+                
+                const navbarToggler = document.getElementById('navbarToggler');
+                const mobileMenu = document.getElementById('mobileMenu');
+                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+                
+                navbarToggler.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                mobileMenuOverlay.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+                
+                setTimeout(() => {
+                    if (originalHref && originalHref !== '#') {
+                        window.location.href = originalHref;
+                    }
+                }, 300);
+                return;
+            }
+            
+            highlightElement(this);
+            
+            currentMobileItem = this;
+            if (mobileClickTimer) {
+                clearTimeout(mobileClickTimer);
+            }
+            
+            mobileClickTimer = setTimeout(() => {
+                mobileClickTimer = null;
+                currentMobileItem = null;
+            }, 1000);
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initTabletMenuHandlers();
+    initMobileMenuTabletHandlers();
+    
+    window.addEventListener('resize', function() {
+        initTabletMenuHandlers();
+        initMobileMenuTabletHandlers();
+    });
+});
+
+const style = document.createElement('style');
+style.textContent = `
+    @media (max-width: 992px) and (min-width: 768px) {
+        .main-menu nav ul li a.menu-icon {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .main-menu nav ul li a.menu-icon::after {
+            content: '✦';
+            margin-left: 5px;
+            font-size: 10px;
+            color: #3a6ce6;
+            opacity: 0.7;
+        }
+        
+        .mobile-menu-links a {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .tablet-click-hint {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #3a6ce6;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .tablet-click-hint.show {
+            opacity: 1;
+        }
+    }
+`;
+document.head.appendChild(style);
