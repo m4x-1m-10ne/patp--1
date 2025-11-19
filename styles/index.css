@@ -29,7 +29,7 @@ body {
     justify-content: space-between;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto; 
+    margin: 0 auto;
     padding: 0 15px;
 }
 
@@ -976,18 +976,73 @@ footer {
     background-color: #e9ecef;
 }
 
-@media (max-width: 1200px) {
+/* ========== ПЛАНШЕТЫ (768px - 1024px) ========== */
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 0 20px;
+    }
+    
     .main-menu nav ul li a {
-        padding: 10px 15px;
+        padding: 10px 14px;
         font-size: 13px;
+    }
+    
+    .hero {
+        padding: 150px 20px;
+    }
+    
+    .hero h1 {
+        font-size: 42px;
+    }
+    
+    .hero p {
+        font-size: 18px;
+    }
+    
+    .stats {
+        gap: 25px;
+        margin: 50px 0;
+    }
+    
+    .stat-item {
+        min-width: 180px;
+        padding: 25px 15px;
+    }
+    
+    .stat-number {
+        font-size: 42px;
+    }
+    
+    .section-title h2 {
+        font-size: 32px;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .map-container {
+        height: 450px;
+    }
+    
+    .footer-content {
+        gap: 35px;
+    }
+    
+    .footer-column {
+        flex: 0 1 280px;
+        max-width: 280px;
     }
 }
 
-@media (max-width: 992px) {
-    .header-container {
-        flex-wrap: nowrap;
-    }
-    
+/* ========== ПЛАНШЕТЫ МАЛЕНЬКИЕ (768px - 900px) ========== */
+@media (max-width: 900px) {
     .header-center {
         display: none;
     }
@@ -1000,24 +1055,49 @@ footer {
         padding: 8px 12px;
         font-size: 13px;
     }
-
-    .footer-content {
-        gap: 30px;
+    
+    .hero {
+        padding: 130px 20px;
     }
     
-    .footer-column {
-        flex: 0 1 280px;
-        max-width: 280px;
+    .hero h1 {
+        font-size: 38px;
+    }
+    
+    .stats {
+        gap: 20px;
+    }
+    
+    .stat-item {
+        min-width: 160px;
+        padding: 20px 15px;
+    }
+    
+    .stat-number {
+        font-size: 38px;
+    }
+    
+    .stat-text {
+        font-size: 16px;
     }
 }
 
+/* ========== ТЕЛЕФОНЫ БОЛЬШИЕ (576px - 768px) ========== */
 @media (max-width: 768px) {
     body {
-        padding-top: 70px; 
+        padding-top: 70px;
+    }
+    
+    .header-container {
+        padding: 0 15px;
+    }
+    
+    .logo img {
+        height: 50px;
     }
     
     .hero {
-        padding: 120px 20px;
+        padding: 100px 20px;
     }
     
     .hero h1 {
@@ -1025,22 +1105,24 @@ footer {
     }
     
     .hero p {
-        font-size: 18px;
+        font-size: 16px;
+    }
+    
+    .btn {
+        padding: 10px 25px;
+        font-size: 14px;
     }
     
     .stats {
         gap: 15px;
         margin: 40px 0;
+        flex-wrap: wrap;
     }
     
     .stat-item {
-        min-width: 150px;
-        padding: 20px 15px;
         flex: 0 0 calc(50% - 15px);
-    }
-    
-    .stat-number {
-        font-size: 40px;
+        min-width: auto;
+        padding: 20px 10px;
     }
     
     .stat-content {
@@ -1050,6 +1132,55 @@ footer {
     
     .stat-divider {
         display: none;
+    }
+    
+    .stat-number {
+        font-size: 36px;
+    }
+    
+    .stat-text {
+        font-size: 14px;
+    }
+    
+    .section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        margin-bottom: 30px;
+    }
+    
+    .section-title h2 {
+        font-size: 28px;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .advantage-item {
+        padding: 20px 15px;
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .map-container {
+        height: 400px;
+    }
+    
+    .map-controls {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .map-control-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
     }
     
     #toTop {
@@ -1066,62 +1197,35 @@ footer {
         height: 45px;
     }
     
-    .map-container {
-        height: 400px;
-    }
-    
-    .map-controls {
-        top: 10px;
-        right: 10px;
-    }
-
-    .map-notifications {
-        width: 90%;
-        max-width: 300px;
-    }
-    
-    .map-notification {
-        padding: 12px 15px;
-    }
-    
-    .map-notification-content {
-        font-size: 13px;
+    footer {
+        padding: 40px 0 20px;
     }
     
     .footer-content {
         flex-direction: column;
         align-items: center;
+        gap: 30px;
+        margin-bottom: 30px;
     }
     
     .footer-column {
         flex: 1;
         max-width: 400px;
         width: 100%;
+        text-align: center;
     }
     
     .footer-bottom-content {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 15px;
     }
     
     .footer-image-container {
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
     }
     
-    .section {
-        padding: 40px 0;
-    }
-    
-    .section-title {
-        margin-bottom: 30px;
-    }
-    
-    .section-title h2 {
-        font-size: 29px;
-    }
-
     .mobile-menu {
         top: 70px;
         max-height: calc(100vh - 70px);
@@ -1134,28 +1238,114 @@ footer {
     .mobile-menu-container {
         padding: 15px;
     }
-    
-    .mobile-menu-title {
-        font-size: 15px;
-    }
-    
-    .mobile-menu-links a {
-        padding: 10px 12px;
-        font-size: 14px;
-    }
 }
 
+/* ========== ТЕЛЕФОНЫ МАЛЕНЬКИЕ (до 576px) ========== */
 @media (max-width: 576px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    .header-container {
+        padding: 0 10px;
+    }
+    
+    .logo img {
+        height: 45px;
+    }
+    
+    .header-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    
+    .navbar-toggler {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .navbar-toggler span {
+        width: 20px;
+        height: 2px;
+    }
+    
+    .hero {
+        padding: 80px 15px;
+    }
+    
     .hero h1 {
-        font-size: 29px;
+        font-size: 28px;
     }
     
     .hero p {
-        font-size: 16px;
+        font-size: 15px;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .stat-item {
+        flex: 1;
+        width: 100%;
+    }
+    
+    .stat-number {
+        font-size: 32px;
     }
     
     .section-title h2 {
-        font-size: 26px;
+        font-size: 24px;
+    }
+    
+    .section-title p {
+        font-size: 14px;
+    }
+    
+    .advantage-item {
+        padding: 15px 10px;
+    }
+    
+    .advantage-icon {
+        font-size: 30px;
+    }
+    
+    .advantage-item h4 {
+        font-size: 16px;
+    }
+    
+    .advantage-item p {
+        font-size: 13px;
+    }
+    
+    .news-content {
+        padding: 15px;
+    }
+    
+    .news-content h3 {
+        font-size: 18px;
+    }
+    
+    .news-content p {
+        font-size: 14px;
+    }
+    
+    .map-container {
+        height: 350px;
+    }
+    
+    .map-notice {
+        font-size: 12px;
+        padding: 8px;
+    }
+    
+    .map-notification {
+        padding: 12px 15px;
+    }
+    
+    .map-notification-content {
+        font-size: 13px;
     }
     
     #toTop {
@@ -1172,35 +1362,105 @@ footer {
         height: 40px;
     }
     
-    .stats {
+    footer {
+        padding: 30px 0 15px;
+    }
+    
+    .footer-column h3 {
+        font-size: 18px;
+    }
+    
+    .footer-contact-item {
+        font-size: 14px;
+    }
+    
+    .footer-links a {
+        font-size: 14px;
+    }
+    
+    .copyright {
+        font-size: 12px;
+    }
+    
+    .job-popup {
+        padding: 20px;
+    }
+    
+    .job-popup h3 {
+        font-size: 20px;
+    }
+    
+    .job-popup p {
+        font-size: 14px;
+    }
+    
+    .job-popup-buttons {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
     }
     
-    .stat-item {
-        flex: 1;
-        min-width: 100%;
+    .job-popup-btn {
+        padding: 10px 20px;
+        font-size: 14px;
     }
     
-    .news-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .mobile-menu {
+        top: 60px;
+        max-height: calc(100vh - 60px);
     }
     
-    .footer-content {
-        gap: 30px;
+    .mobile-menu-overlay {
+        top: 60px;
     }
     
-    .footer-column {
-        max-width: 100%;
+    .mobile-menu-title {
+        font-size: 15px;
     }
+    
+    .mobile-menu-links a {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
 
-    .logo img {
-        height: 50px;
+/* ========== ОЧЕНЬ МАЛЕНЬКИЕ ТЕЛЕФОНЫ (до 400px) ========== */
+@media (max-width: 400px) {
+    .hero h1 {
+        font-size: 24px;
+    }
+    
+    .hero p {
+        font-size: 14px;
+    }
+    
+    .stat-number {
+        font-size: 28px;
+    }
+    
+    .stat-text {
+        font-size: 13px;
+    }
+    
+    .section-title h2 {
+        font-size: 22px;
     }
     
     .btn {
-        padding: 10px 25px;
-        font-size: 14px;
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+    
+    .footer-image-container {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .social-links a {
+        width: 35px;
+        height: 35px;
     }
 }
