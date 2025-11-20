@@ -105,3 +105,87 @@ window.addEventListener('resize', function() {
         showElements();
     }
 });
+
+const workLink = document.querySelector('footer a[href="rabota.html"]');
+
+function toggleWorkButton() {
+    if (window.scrollY > 300) {
+        workButton.classList.add('show');
+    } else {
+        workButton.classList.remove('show');
+    }
+}
+
+if (workButton) {
+    toggleWorkButton();
+    window.addEventListener('scroll', toggleWorkButton);
+}
+
+if (jobPopup) {
+    const laterBtn = document.getElementById('laterBtn');
+
+    function shouldShowPopup() {
+        if (sessionStorage.getItem('jobPopupShown')) {
+            return false;
+        }
+        
+        const nextShowTime = localStorage.getItem('jobPopupNextShow');
+        if (nextShowTime && Date.now() < parseInt(nextShowTime)) {
+            return false;
+        }
+        
+        return true;
+    }
+
+    setTimeout(() => {
+        if (shouldShowPopup()) {
+            jobPopup.classList.add('active');
+            sessionStorage.setItem('jobPopupShown', 'true');
+        }
+    }, 2000);
+
+    if (laterBtn) {
+        laterBtn.addEventListener('click', function() {
+            jobPopup.classList.remove('active');
+            localStorage.setItem('jobPopupNextShow', Date.now() + 24 * 60 * 60 * 1000);
+        });
+    }
+
+    jobPopup.addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.remove('active');
+        }
+    });
+
+    function highlightWorkLink() {
+        if (workLink) {
+            workLink.classList.add('highlight', 'highlight-pulse');
+            
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start'
+                });
+            }
+            
+            setTimeout(() => {
+                workLink.classList.remove('highlight-pulse');
+            }, 5000);
+        }
+    }
+
+    const vacanciesBtn = document.getElementById('vacanciesBtn');
+    if (vacanciesBtn) {
+        vacanciesBtn.addEventListener('click', function(e) {
+            jobPopup.classList.remove('active');
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 300);
+        });
+    }
+
+    window.showJobPopup = function() {
+        jobPopup.classList.add('active');
+    };
+}
