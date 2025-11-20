@@ -18,6 +18,7 @@ scrollButton.addEventListener('click', function() {
         behavior: 'smooth' });
 });
 
+
 const navbarToggler = document.getElementById('navbarToggler');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
