@@ -27,30 +27,11 @@ const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
 function disableScroll() {
     document.body.style.overflow = 'hidden';
     document.body.style.height = '100%';
-    document.body.style.touchAction = 'none';
-    document.body.style.position = 'fixed';
-    document.body.style.width = '100%';
-    document.body.style.top = `-${window.scrollY}px`;
 }
 
 function enableScroll() {
-    const scrollY = document.body.style.top;
     document.body.style.overflow = '';
     document.body.style.height = '';
-    document.body.style.touchAction = '';
-    document.body.style.position = '';
-    document.body.style.width = '';
-    document.body.style.top = '';
-    
-    if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
-    }
-}
-
-function preventScroll(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    return false;
 }
 
 function hideElements() {
@@ -74,15 +55,9 @@ navbarToggler.addEventListener('click', function() {
     if (isActive) {
         disableScroll();
         hideElements();
-        // Блокируем события колесика
-        document.addEventListener('wheel', preventScroll, { passive: false });
-        document.addEventListener('touchmove', preventScroll, { passive: false });
     } else {
         enableScroll();
         showElements();
-        // Разблокируем события колесика
-        document.removeEventListener('wheel', preventScroll);
-        document.removeEventListener('touchmove', preventScroll);
     }
 });
 
@@ -93,8 +68,6 @@ mobileMenuOverlay.addEventListener('click', function() {
     document.body.classList.remove('mobile-menu-open');
     enableScroll();
     showElements();
-    document.removeEventListener('wheel', preventScroll);
-    document.removeEventListener('touchmove', preventScroll);
 });
 
 const mobileMenuLinks = mobileMenu.querySelectorAll('a');
@@ -108,8 +81,6 @@ mobileMenuLinks.forEach(link => {
         document.body.classList.remove('mobile-menu-open');
         enableScroll();
         showElements();
-        document.removeEventListener('wheel', preventScroll);
-        document.removeEventListener('touchmove', preventScroll);
     });
 });
 
@@ -121,8 +92,6 @@ document.addEventListener('keydown', function(e) {
         document.body.classList.remove('mobile-menu-open');
         enableScroll();
         showElements();
-        document.removeEventListener('wheel', preventScroll);
-        document.removeEventListener('touchmove', preventScroll);
     }
 });
 
@@ -134,8 +103,6 @@ window.addEventListener('resize', function() {
         document.body.classList.remove('mobile-menu-open');
         enableScroll();
         showElements();
-        document.removeEventListener('wheel', preventScroll);
-        document.removeEventListener('touchmove', preventScroll);
     }
 });
 
