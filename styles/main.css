@@ -626,7 +626,7 @@ footer {
     border-left: 4px solid var(--primary-color);
     text-align: left;
     position: relative;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .document-card::before {
@@ -739,4 +739,5 @@ footer {
     background-color: #f1f5f9;
     padding: 50px 0;
 }
+
 
