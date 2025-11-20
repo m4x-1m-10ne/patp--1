@@ -474,3 +474,117 @@ footer {
     background-color: #333333;
     transform: translateY(-3px);
 }
+
+.breadcrumb-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 60px 0 40px;
+    margin-bottom: 40px;
+}
+
+.breadcrumb-section h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.breadcrumb {
+    background: transparent;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.breadcrumb-item a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: white;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.section {
+    padding: 50px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.section-title p {
+    color: #666666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.content-section {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.content-section p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.content-section ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.content-section li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #3a6ce6;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #2a5cd6;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    color: white;
+}
