@@ -1,509 +1,399 @@
-.breadcrumb-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/o-kompanii.jpg');
-    color: white;
-    padding: 60px 0 40px;
-    margin-bottom: 40px;
-    position: relative;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании - АО «ПАТП №1»</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="styles/mediaqueries.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/o-kompanii.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+<body>
+    <header class="header-area">
+        <div class="container-fluid">
+            <div class="header-container">
+                <div class="header-left">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="https://mupatp1.ru/assets/template/img/logo_Ptp.png" alt="Логотип ПАТП №1">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="header-center">
+                    <div class="main-menu">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="https://mupatp1.ru/raspisanie/" class="menu-icon">Расписание<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="https://citybus35.ru/" target="_blank">Умный транспорт</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="oplata-proezda.html" class="menu-icon">Оплата проезда<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="https://bilet.nspk.ru/" target="_blank">Оплата банковской картой</a></li>
+                                        <li><a href="https://t-karta.ru" target="_blank">История поездок (кабинет)</a></li>
+                                        <li><a href="pravila-asop.html">Правила АСОП</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="uslugi.html" class="menu-icon">Услуги<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="zakaznye-perevozki.html">Заказные перевозки</a></li>
+                                        <li><a href="passazhirskie-perevozki.html">Пассажирские перевозки</a></li>
+                                        <li><a href="perevozka-detej.html">Перевозка детей</a></li>
+                                        <li><a href="texnicheskoe-obsluzhivanie.html">Техническое обслуживание</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="o-kompanii.html" class="menu-icon">О компании<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="novosti.html">Новости</a></li>
+                                        <li><a href="kontakty.html">Контакты</a></li>
+                                        <li><a href="avtopark.html">Автопарк</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="oficialnaya-informaciya.html" class="menu-icon">Официальная информация<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <ul class="submenu-mainmenu">
+                                        <li><a href="dokumenty.html">Документы</a></li>
+                                        <li><a href="protivodejstvie-korrupcii.html">Противодействие коррупции</a></li>
+                                        <li><a href="informaciya-ot-prokuratury.html">Информация от Прокуратуры г. Вологда</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <a href="rabota.html" class="header-btn">
+                        <i class="fas fa-briefcase"></i> РАБОТА У НАС
+                    </a>
+                    
+                    <button class="navbar-toggler" id="navbarToggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-menu-container">
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Расписание</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="https://mupatp1.ru/raspisanie/"><i class="fas fa-bus"></i> Расписание автобусов</a></li>
+                            <li><a href="https://citybus35.ru/" target="_blank" class="external-link"><i class="fas fa-map-marked-alt"></i> Умный транспорт</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Оплата проезда</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="oplata-proezda.html"><i class="fas fa-money-bill-wave"></i> Стоимость проезда</a></li>
+                            <li><a href="https://bilet.nspk.ru/" target="_blank" class="external-link"><i class="fas fa-credit-card"></i> Оплата картой</a></li>
+                            <li><a href="https://t-karta.ru" target="_blank" class="external-link"><i class="fas fa-history"></i> История поездок</a></li>
+                            <li><a href="pravila-asop.html"><i class="fas fa-file-contract"></i> Правила АСОП</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Услуги</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="uslugi.html"><i class="fas fa-concierge-bell"></i> Все услуги</a></li>
+                            <li><a href="zakaznye-perevozki.html"><i class="fas fa-bus-alt"></i> Заказные перевозки</a></li>
+                            <li><a href="passazhirskie-perevozki.html"><i class="fas fa-users"></i> Пассажирские перевозки</a></li>
+                            <li><a href="perevozka-detej.html"><i class="fas fa-child"></i> Перевозка детей</a></li>
+                            <li><a href="texnicheskoe-obsluzhivanie.html"><i class="fas fa-cogs"></i> Техническое обслуживание</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">О компании</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="o-kompanii.html"><i class="fas fa-building"></i> О нас</a></li>
+                            <li><a href="novosti.html"><i class="far fa-newspaper"></i> Новости</a></li>
+                            <li><a href="kontakty.html"><i class="fas fa-address-book"></i> Контакты</a></li>
+                            <li><a href="avtopark.html"><i class="fas fa-car"></i> Автопарк</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mobile-menu-section">
+                        <h3 class="mobile-menu-title">Официальная информация</h3>
+                        <ul class="mobile-menu-links">
+                            <li><a href="oficialnaya-informaciya.html"><i class="fas fa-info-circle"></i> Официальная информация</a></li>
+                            <li><a href="dokumenty.html"><i class="fas fa-file-alt"></i> Документы</a></li>
+                            <li><a href="protivodejstvie-korrupcii.html"><i class="fas fa-gavel"></i> Противодействие коррупции</a></li>
+                            <li><a href="informaciya-ot-prokuratury.html"><i class="fas fa-balance-scale"></i> Информация от Прокуратуры</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-.about-content {
-    background: white;
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    margin-bottom: 40px;
-}
+    <section class="breadcrumb-section">
+    <div class="container">
+        <h1>О компании</h1>
+        <div class="breadcrumb-content">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+                    <li class="breadcrumb-item active">О компании</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</section>
 
-.about-content h3 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-}
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="gallery-slider">
+                        <h3>Фотогалерея предприятия</h3>
+                        <div class="slider-container">
+                            <button class="slider-arrow prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            
+                            <div class="slider-track">
+                                <div class="slide active">
+                                    <img src="img/photo_1.jpg" alt="Современный автопарк предприятия">
+                                    <div class="slide-caption">Современный автопарк предприятия</div>
+                                </div>
+                                <div class="slide">
+                                    <img src="img/photo_2.jpg" alt="Транспорт на маршрутах города Вологды">
+                                    <div class="slide-caption">Транспорт на маршрутах города Вологды</div>
+                                </div>
+                                <div class="slide">
+                                    <img src="img/photo_3.jpg" alt="Обслуживание автобусов в парке">
+                                    <div class="slide-caption">Обслуживание автобусов в парке</div>
+                                </div>
+                                <div class="slide">
+                                    <img src="img/photo_4.jpg" alt="История предприятия насчитывает более 80 лет">
+                                    <div class="slide-caption">История предприятия насчитывает более 80 лет</div>
+                                </div>
+                            </div>
+                            
+                            <button class="slider-arrow next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="slider-controls">
+                            <div class="slider-nav">
+                                <button class="slider-dot active" data-slide="0"></button>
+                                <button class="slider-dot" data-slide="1"></button>
+                                <button class="slider-dot" data-slide="2"></button>
+                                <button class="slider-dot" data-slide="3"></button>
+                            </div>
+                            
+                            <div class="slider-progress">
+                                <div class="slider-progress-bar"></div>
+                            </div>
+                            
+                            <div class="slide-number">
+                                <span class="current-slide">1</span> / <span class="total-slides">4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="about-content">
+                        <h3>О нас</h3>
+                        <p>В настоящий момент городские автобусные пассажирские перевозки населения г. Вологды осуществляют АО "ПАТП № 1".</p>
+                        <p>Ежедневно в городе Вологда автобусами «ПАТП № 1» перевозится около 50 тысяч пассажиров, а это более 18 миллионов пассажиров в год. Эксплуатационный парк автобусов составляет порядка 130 единиц, численность работающих - около 500 человек.</p>
+                        <p>В настоящее время «ПАТП № 1», являясь частью инфраструктуры города, играет важную роль в его жизнеобеспечении. Подвижность населения города, работа промышленных предприятий, а также предприятий и учреждений социальной сферы напрямую зависит от городского пассажирского транспорта.</p>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <i class="fas fa-bus"></i>
+                                <h3>130+</h3>
+                                <p>Автобусов в парке</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-users"></i>
+                                <h3>50 тыс.</h3>
+                                <p>Пассажиров ежедневно</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-road"></i>
+                                <h3>15</h3>
+                                <p>Маршрутов</p>
+                            </div>
+                            <div class="stat-card">
+                                <i class="fas fa-user-tie"></i>
+                                <h3>500</h3>
+                                <p>Сотрудников</p>
+                            </div>
+                        </div>
 
-.about-content p {
-    margin-bottom: 20px;
-    font-size: 16px;
-    line-height: 1.8;
-}
+                        <p>Начиная с 2012 года Предприятие реализует проект безналичной оплаты проезда, постоянно совершенствуя его, предлагая новые решения. В 2019 году «ПАТП № 1» первым предоставило своим пассажирам возможность оплаты проезда банковскими картами.</p>
+                        <p>Значительные суммы налоговых платежей в городской, областной и федеральный бюджеты, а также платежей во внебюджетные фонды, уплачиваемых Предприятием без задержек, в сроки, установленные законодательством, свидетельствуют о том, что «ПАТП № 1» вносит свой весомый вклад в экономику города и области.</p>
+                        
+                        <h3 style="margin-top: 40px;">Виды деятельности</h3>
+                        <ul>
+                            <li>Перевозка пассажиров на городских маршрутах</li>
+                            <li>Перевозка пассажиров по отдельным заказам граждан и организаций</li>
+                            <li>Оказание услуг юридическим и физическим лицам в техническом обслуживании и ремонте транспортных средств</li>
+                            <li>Осуществление рекламной деятельности</li>
+                            <li>Обучение водителей на категории С и D в Учебном центре Предприятия</li>
+                            <li>Оказание услуг юридическим лицам по предрейсовому, послерейсовому, а также предсменному и послесменному медосмотрам работников</li>
+                        </ul>
+                    </div>
 
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin: 40px 0;
-}
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-header active">
+                                <span>История предприятия</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content active">
+                                <p>«ПАТП № 1» - это крупнейший перевозчик пассажиров в городе Вологде и одно из самых значимых предприятий для областной столицы. История предприятия насчитывает уже более 80 лет.</p>
+                                <p>Все началось в 1939 году, когда в Вологде была основана Вологодская автотранспортная контора. Первоначально АТК размещалась на Красноармейской набережной (в настоящее время территория СКДМ). В то время в парк предприятия входили первые советские автобусы марки ЗИС-8 - еще с деревянными кузовом и сиденьями.</p>
+                                <p>В 1955 году Вологодская АТК переместилась в другое место - на Пошехонское шоссе, 4 (территория бывшего таксопарка) и была переименована в пассажирское автохозяйство (ПАХ). К тому времени парк предприятия составлял уже 162 автобуса марок ЗИС-155, РАФ, ТА-6 и ПАЗ-651.</p>
+                                <p>Позже ПАХ переместилось на улицу Чернышевского, 135 и переименовано в «Автоколонну № 1117». В 1986 году от нее отделилось ПАТП № 2, которое осталось на старой производственной базе, а само Предприятие обрело привычный уже ныне дом на Мудрова, 31.</p>
+                                <p>Здесь для нужд предприятия была построена производственная база – гараж на 200 автобусов с закрытой стоянкой на 80 автобусов, мастерские, посты диагностики и технического обслуживания. Вскоре были построены и оборудованы новые ремонтные цеха, склады, смотровые канавы с канализацией.</p>
+                                <p>В 1992 году «Автоколонна № 1117» перешла из федеральной собственности в областную, а в 1995 году - в муниципальную. Тогда же она была переименована в муниципальное унитарное пассажирское автотранспортное предприятие № 1 (МУ ПАТП № 1).</p>
+                                <p>Сейчас перевозки обслуживает созданное в 2017 году «ПАТП № 1». Стабильное финансово-экономическое положение позволяет ПАТП № 1 не только выполнять поставленные перед ним производственные задачи, но и проводить целенаправленную социальную политику в коллективе.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-.stat-card {
-    background: white;
-    border-radius: 10px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-}
+                <div class="col-lg-4">
+                    <div class="contact-sidebar">
+                        <h3>Контактная информация</h3>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="content">
+                                    <strong>Адрес</strong>
+                                    <span>г. Вологда, ул. Мудрова, 31</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-building"></i>
+                                <div class="content">
+                                    <strong>Организация</strong>
+                                    <span>АО «ПАТП №1»</span>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <div class="content">
+                                    <strong>Приемная</strong>
+                                    <a href="tel:+78172556670">+7 (8172) 55-66-70</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <div class="content">
+                                    <strong>Диспетчерская</strong>
+                                    <a href="tel:+78172556670">+7 (8172) 55-66-70</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <div class="content">
+                                    <strong>E-mail</strong>
+                                    <a href="mailto:mail@mupatp1.ru">mail@mupatp1.ru</a>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-globe"></i>
+                                <div class="content">
+                                    <strong>Сайт</strong>
+                                    <a href="https://mupatp1.ru/">mupatp1.ru</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="contact-sidebar">
+                        <h3>Присоединяйтесь к нам</h3>
+                        <p>Мы всегда рады новым сотрудникам в нашу команду профессионалов.</p>
+                        <a href="rabota.html#vacancies" class="btn w-100 text-center">
+                            <i class="fas fa-briefcase me-2"></i> Вакансии
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3><a href="o-kompanii.html" style="color: white; text-decoration: none;">О нашей компании</a></h3>
+                    
+                    <div class="footer-contact-info">
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+78172556670">+7 (8172) 55-66-70</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:mail@mupatp1.ru">mail@mupatp1.ru</a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-bottom-content">
+                        <div class="footer-image-container">
+                            <img src="img/win.png" alt="Победа">
+                        </div>
+                        <div class="social-links">
+                            <a href="https://vk.com/patp1vologda" target="_blank"><i class="fab fa-vk"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Основные разделы</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://mupatp1.ru/raspisanie/">Расписание</a></li>
+                        <li><a href="oplata-proezda.html">Оплата проезда</a></li>
+                        <li><a href="uslugi.html">Услуги</a></li>
+                        <li><a href="novosti.html">Новости</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Полезные ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://citybus35.ru/" target="_blank">Умный транспорт</a></li>
+                        <li><a href="rabota.html">Работа у нас</a></li>
+                        <li><a href="https://yc.mupatp1.ru/" target="_blank">Учебный центр</a></li>
+                        <li><a href="dokumenty.html">Документы</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 АО «ПАТП №1». Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
 
-.stat-card i {
-    font-size: 48px;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
+    <div id="toTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
 
-.stat-card h3 {
-    font-size: 36px;
-    font-weight: bold;
-    color: var(--text-color);
-    margin-bottom: 10px;
-}
-
-.stat-card p {
-    color: #666666;
-    font-size: 16px;
-}
-
-.accordion {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    margin-bottom: 40px;
-}
-
-.accordion-item {
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.accordion-item:last-child {
-    border-bottom: none;
-}
-
-.accordion-header {
-    background: var(--primary-color);
-    color: white;
-    padding: 20px 30px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.accordion-header:hover {
-    background: #2a5cd6;
-}
-
-.accordion-header i {
-    transition: transform 0.3s ease;
-}
-
-.accordion-header.active i {
-    transform: rotate(180deg);
-}
-
-.accordion-content {
-    padding: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.accordion-content.active {
-    padding: 30px;
-    max-height: none;
-    height: auto;
-}
-
-.contact-sidebar {
-    background: white;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    margin-bottom: 30px;
-}
-
-.contact-sidebar h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--light-bg);
-    padding-bottom: 10px;
-}
-
-.contact-info {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.contact-info li {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.contact-info li:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-
-.contact-info i {
-    width: 20px;
-    text-align: center;
-    color: var(--primary-color);
-    margin-top: 3px;
-    flex-shrink: 0;
-}
-
-.contact-info .content {
-    flex: 1;
-}
-
-.contact-info strong {
-    display: block;
-    margin-bottom: 5px;
-    color: var(--text-color);
-}
-
-.contact-info a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-info a:hover {
-    color: var(--primary-color);
-}
-
-.gallery-slider {
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    position: relative;
-    margin-bottom: 50px;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.gallery-slider h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    text-align: center;
-    border-bottom: 3px solid var(--primary-color);
-    padding-bottom: 15px;
-}
-
-.slider-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    height: 400px;
-    background: #000;
-}
-
-.slider-track {
-    display: flex;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    height: 100%;
-}
-
-.slide {
-    min-width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.3s ease;
-}
-
-.slide:hover img {
-    transform: scale(1.02);
-}
-
-.slide-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.slider-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.slider-nav {
-    display: flex;
-    gap: 6px;
-    order: 2;
-}
-
-.slider-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #ddd;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.slider-dot::after {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border-radius: 50%;
-    background: transparent;
-    transition: all 0.3s ease;
-}
-
-.slider-dot:hover::after {
-    background: rgba(58, 108, 230, 0.1);
-}
-
-.slider-dot.active {
-    background: var(--primary-color);
-    transform: scale(1.3);
-}
-
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.9);
-    border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 10;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.slider-arrow:hover {
-    background: white;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-.slider-arrow.prev {
-    left: 10px;
-}
-
-.slider-arrow.next {
-    right: 10px;
-}
-
-.slider-arrow i {
-    font-size: 16px;
-    color: var(--primary-color);
-    transition: transform 0.3s ease;
-}
-
-.slider-arrow:hover i {
-    transform: scale(1.2);
-}
-
-.slider-progress {
-    width: 80px;
-    height: 3px;
-    background: #eee;
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-    order: 1;
-}
-
-.slider-progress-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: var(--primary-color);
-    width: 0%;
-    transition: width 0.1s linear;
-}
-
-.slide-number {
-    font-size: 14px;
-    color: #666;
-    font-weight: 500;
-    order: 3;
-}
-
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-    .gallery-slider {
-        padding: 15px;
-        margin-bottom: 30px;
-        border-radius: 10px;
-    }
-    
-    .gallery-slider h3 {
-        font-size: 20px;
-        margin-bottom: 15px;
-        padding-bottom: 10px;
-    }
-    
-    .slider-container {
-        height: 300px;
-        border-radius: 8px;
-    }
-    
-    .slide-caption {
-        padding: 12px;
-        font-size: 14px;
-    }
-    
-    .slider-arrow {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .slider-arrow.prev {
-        left: 8px;
-    }
-    
-    .slider-arrow.next {
-        right: 8px;
-    }
-    
-    .slider-arrow i {
-        font-size: 14px;
-    }
-    
-    .slider-controls {
-        margin-top: 15px;
-        gap: 12px;
-    }
-    
-    .slider-nav {
-        gap: 4px;
-    }
-    
-    .slider-dot {
-        width: 8px;
-        height: 8px;
-    }
-    
-    .slider-progress {
-        width: 60px;
-        height: 2px;
-    }
-    
-    .slide-number {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 576px) {
-    .gallery-slider {
-        padding: 10px;
-        margin-bottom: 20px;
-    }
-    
-    .gallery-slider h3 {
-        font-size: 18px;
-        margin-bottom: 12px;
-    }
-    
-    .slider-container {
-        height: 250px;
-        border-radius: 6px;
-    }
-    
-    .slide-caption {
-        padding: 10px;
-        font-size: 13px;
-    }
-    
-    .slider-arrow {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .slider-arrow.prev {
-        left: 5px;
-    }
-    
-    .slider-arrow.next {
-        right: 5px;
-    }
-    
-    .slider-controls {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .slider-nav {
-        order: 1;
-    }
-    
-    .slider-progress {
-        order: 2;
-        width: 100px;
-    }
-    
-    .slide-number {
-        order: 3;
-    }
-}
-
-@media (max-width: 400px) {
-    .slider-container {
-        height: 200px;
-    }
-    
-    .slide-caption {
-        font-size: 12px;
-        padding: 8px;
-    }
-    
-    .slider-arrow {
-        width: 30px;
-        height: 30px;
-    }
-    
-    .slider-arrow i {
-        font-size: 12px;
-    }
-}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/o-kompanii.js"></script>
+</body>
+</html>
