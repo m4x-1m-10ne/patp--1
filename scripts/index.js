@@ -167,28 +167,28 @@ if (document.getElementById('ymap')) {
                 isMapActive = false;
             }
         });
-
+        
         document.getElementById('mapPatpBtn').addEventListener('click', function() {
-        myMap.panTo(coords, {
-            duration: 1000,
-            timingFunction: 'ease-in-out'
+            myMap.panTo(coords, {
+                duration: 1000,
+                timingFunction: 'ease-in-out'
+            });
+            
+            setTimeout(function() {
+                myMap.setZoom(16);
+            }, 500);
+            
+            setTimeout(function() {
+                myPlacemark.balloon.open();
+            }, 800);
+            
+            showMapNotification('Возврат к местоположению ПАТП №1');
+            
+            this.classList.add('active');
+            setTimeout(() => {
+                this.classList.remove('active');
+            }, 1000);
         });
-        
-        setTimeout(function() {
-            myMap.setZoom(16);
-        }, 500);
-        
-        setTimeout(function() {
-            myPlacemark.balloon.open();
-        }, 800);
-        
-        showMapNotification('Возврат к местоположению ПАТП №1');
-        
-        this.classList.add('active');
-        setTimeout(() => {
-            this.classList.remove('active');
-        }, 1000);
-    });
         
         document.addEventListener('fullscreenchange', exitHandler);
         document.addEventListener('webkitfullscreenchange', exitHandler);
@@ -235,5 +235,4 @@ if (document.getElementById('ymap')) {
             }, 300);
         }, 3000);
     }
-
 }
